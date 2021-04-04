@@ -17,7 +17,7 @@
   }
 }
 
-@font-face {
+/* @font-face {
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 700;
@@ -43,7 +43,7 @@
     url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
     url('../fonts/OpenSans-SemiBold.woff') format('woff');
   font-display: swap;
-}
+} */
 * {
   box-sizing: border-box;
 }
