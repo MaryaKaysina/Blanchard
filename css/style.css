@@ -715,4 +715,8 @@ html {
     font-size: 12px;
     line-height: 16px;
   }
+  .hero__btn::after {
+    width: 205px;
+    height: 45px;
+  }
 }
