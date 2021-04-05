@@ -2,7 +2,7 @@
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v7.0.29,
 * Autoprefixer: v9.7.6
-* Browsers: last 1 version
+* Browsers: last 4 version
 */
 
 :root {
@@ -61,7 +61,8 @@
     url('../fonts/OpenSans-SemiBold.woff') format('woff');
 }
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 a {
   text-decoration: none;
@@ -104,6 +105,8 @@ html {
   border-radius: 100px;
   font-weight: bold;
   cursor: pointer;
+  -webkit-transition: border-color .3s ease-in-out;
+  -o-transition: border-color .3s ease-in-out;
   transition: border-color .3s ease-in-out;
 }
 
@@ -123,9 +126,15 @@ html {
   background: rgba(0, 0, 0, .4);
 }
 .header__wrap .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .header__burger {
   position: relative;
@@ -153,6 +162,8 @@ html {
   height: 3.65px;
   background: white;
   transition: -webkit-transform .2s ease-in-out;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  -o-transition: transform .2s ease-in-out;
   transition: transform .2s ease-in-out;
   transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
@@ -168,13 +179,15 @@ html {
   display: block;
   width: 37px;
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
 }
 .burger__menu--close::after {
   top: 0;
   width: 37px;
   -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
 }
 .burger__menu--close::before {
   display: none;
@@ -207,6 +220,8 @@ html {
   font-weight: 600;
   font-size: 24px;
   cursor: pointer;
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
 }
 .burger__log {
@@ -269,17 +284,25 @@ html {
 }
 .nav__list,
 .catalogy__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .nav__item:not(:last-child) {
   margin-right: 65px;
 }
 .nav__link,
 .log__in {
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
 }
 .log__icon {
+  -webkit-transition: fill .3s ease-in-out;
+  -o-transition: fill .3s ease-in-out;
   transition: fill .3s ease-in-out;
 }
 .nav__link:hover {
@@ -328,6 +351,8 @@ html {
 }
 .catalogy__link {
   position: relative;
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
 }
 .catalogy__link::after {
@@ -340,8 +365,13 @@ html {
   border-bottom: 1px solid white;
   border-left: 1px solid white;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  -webkit-transition: border-color .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  transition: border-color .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  -o-transition: border-color .3s ease-in-out, transform .3s ease-in-out;
   transition: border-color .3s ease-in-out, transform .3s ease-in-out;
+  transition: border-color .3s ease-in-out, transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 .catalogy__link:hover {
   color: var(--col-accent);
@@ -356,8 +386,12 @@ html {
   border-color: var(--col-active);
 }
 .catalogy__link--open.catalogy__link::after {
-  transform-origin: center 75%;
-  transform: rotate(135deg);
+  -webkit-transform-origin: center 75%;
+      -ms-transform-origin: center 75%;
+          transform-origin: center 75%;
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 .item__list {
   display: none;
@@ -453,6 +487,8 @@ html {
 }
 .header__wrap:last-child .header__search {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 5px;
   cursor: pointer;
@@ -461,6 +497,8 @@ html {
   position: absolute;
   left: -31px;
   padding: 5px;
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
   cursor: pointer;
 }
@@ -472,6 +510,8 @@ html {
   width: 216px;
   height: 1px;
   background: white;
+  -webkit-transition: background .3s ease-in-out;
+  -o-transition: background .3s ease-in-out;
   transition: background .3s ease-in-out;
 }
 .search__btn:focus {
@@ -482,6 +522,8 @@ html {
   border: none;
   color: var(--col-hover);
   background: transparent;
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
   cursor: pointer;
 }
@@ -504,6 +546,8 @@ html {
   outline: 2px solid var(--col-active);
 }
 .search__icon {
+  -webkit-transition: fill .3s ease-in-out;
+  -o-transition: fill .3s ease-in-out;
   transition: fill .3s ease-in-out;
 }
 .header__search:hover .search__icon {
@@ -575,6 +619,8 @@ html {
   border-radius: 100px;
   background: var(--col-hover);
   opacity: 0;
+  -webkit-transition: opacity .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out;
   transition: opacity .3s ease-in-out;
 }
 .hero__btn:hover {
@@ -671,7 +717,8 @@ html {
     width: 37px;
     height: 3px;
     -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
     right: 18px;
     background: #FFFFFF;
     top: 36px;
@@ -685,7 +732,8 @@ html {
     width: 37px;
     height: 3px;
     -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
     right: 0;
     background: #FFFFFF;
     top: 0px;
@@ -755,7 +803,8 @@ html {
     display: block;
     width: 20px;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
   }
   .burger__nav {
     height: 355px;
