@@ -41,4 +41,16 @@ $(document).ready(function() {
       $(".search__open").removeClass("search__open--active");
     });
   }
+
+  //dropdown
+  $(".catalogy__link").click(function(event) {
+    event.preventDefault();
+    let $id = $(this).attr('id');
+    $(".catalogy__link").each(function() {
+      if( $( this ).attr('id') !== $id) {
+        $(this).removeClass("catalogy__link--open");
+      }
+    });
+    $(this).toggleClass("catalogy__link--open");
+  });
 });

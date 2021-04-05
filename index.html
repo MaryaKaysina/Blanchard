@@ -7,7 +7,8 @@
   <title>Blanchard — художественная галерея</title>
   <!--- CSS -->
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/simplebar.min.css"/>
   <link rel="stylesheet" href="css/style.css">
 
   <!--- JS -->
@@ -70,8 +71,12 @@
         <div class="header__catalogy">
           <ul class="catalogy__list">
             <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link">Реализм</a>
-              <ul class="item__list">
+              <a href="#" class="catalogy__link" id="catalogy__link-1">Реализм</a>
+              <ul class="item__list " data-simplebar>
+                <li class="item__inner item__inner--bg-1">Тинторетто</li>
+                <li class="item__inner item__inner--bg-2">Фридрих</li>
+                <li class="item__inner item__inner--bg-3">Леонардо</li>
+                <li class="item__inner item__inner--bg-4">Верроккьо</li>
                 <li class="item__inner item__inner--bg-1">Тинторетто</li>
                 <li class="item__inner item__inner--bg-2">Фридрих</li>
                 <li class="item__inner item__inner--bg-3">Леонардо</li>
@@ -79,16 +84,56 @@
               </ul>
             </li>
             <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link">Импрессионизм</a>
+              <a href="#" class="catalogy__link" id="catalogy__link-2">Импрессионизм</a>
+              <ul class="item__list " data-simplebar>
+                <li class="item__inner item__inner--bg-5">Моне</li>
+                <li class="item__inner item__inner--bg-6">Сислей</li>
+                <li class="item__inner item__inner--bg-7">Мане</li>
+                <li class="item__inner item__inner--bg-8">Ренуар</li>
+                <li class="item__inner item__inner--bg-5">Моне</li>
+                <li class="item__inner item__inner--bg-6">Сислей</li>
+                <li class="item__inner item__inner--bg-7">Мане</li>
+                <li class="item__inner item__inner--bg-8">Ренуар</li>
+              </ul>
             </li>
             <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link">Постимпрессионизм</a>
+              <a href="#" class="catalogy__link" id="catalogy__link-3">Постимпрессионизм</a>
+              <ul class="item__list " data-simplebar>
+                <li class="item__inner item__inner--bg-9">Ван Гог</li>
+                <li class="item__inner item__inner--bg-10">Сезанн</li>
+                <li class="item__inner item__inner--bg-11">Гоген</li>
+                <li class="item__inner item__inner--bg-12">Сёра</li>
+                <li class="item__inner item__inner--bg-9">Ван Гог</li>
+                <li class="item__inner item__inner--bg-10">Сезанн</li>
+                <li class="item__inner item__inner--bg-11">Гоген</li>
+                <li class="item__inner item__inner--bg-12">Сёра</li>
+              </ul>
             </li>
             <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link">Авангард</a>
+              <a href="#" class="catalogy__link" id="catalogy__link-4">Авангард</a>
+              <ul class="item__list " data-simplebar>
+                <li class="item__inner item__inner--bg-13">Кандинский</li>
+                <li class="item__inner item__inner--bg-14">Маринетти</li>
+                <li class="item__inner item__inner--bg-15">Малевич</li>
+                <li class="item__inner item__inner--bg-16">Пикассо</li>
+                <li class="item__inner item__inner--bg-13">Кандинский</li>
+                <li class="item__inner item__inner--bg-14">Маринетти</li>
+                <li class="item__inner item__inner--bg-15">Малевич</li>
+                <li class="item__inner item__inner--bg-16">Пикассо</li>
+              </ul>
             </li>
             <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link">Футуризм</a>
+              <a href="#" class="catalogy__link" id="catalogy__link-5">Футуризм</a>
+              <ul class="item__list " data-simplebar>
+                <li class="item__inner item__inner--bg-17">Карра</li>
+                <li class="item__inner item__inner--bg-18">Прателла</li>
+                <li class="item__inner item__inner--bg-19">Северини</li>
+                <li class="item__inner item__inner--bg-20">Балла</li>
+                <li class="item__inner item__inner--bg-17">Карра</li>
+                <li class="item__inner item__inner--bg-18">Прателла</li>
+                <li class="item__inner item__inner--bg-19">Северини</li>
+                <li class="item__inner item__inner--bg-20">Балла</li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -124,6 +169,7 @@
     <!--- JS -->
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/simplebar.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
 </body>
 </html>
