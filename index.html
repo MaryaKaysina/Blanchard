@@ -10,31 +10,21 @@
   <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="css/simplebar.min.css"/>
   <link rel="stylesheet" href="css/style.css">
-  <!--- JS -->
-  <script src="js/main.js" defer></script>
 </head>
 <body>
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="log__icon" viewbox="0 0 13 13">
+      <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z"/>
+    </symbol>
+    <symbol id="search__icon" viewbox="0 0 23 22">
+      <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"/>
+    </symbol>
+  </svg>
   <header class="header">
     <div class="header__wrap">
       <div class="container">
-        <button class="header__burger"><span class="burger__menu"></span></button>
-        <nav class="burger__nav">
-          <ul class="burger__list">
-            <li class="burger__item"><a href="#" class="burger__link">О нас</a></li>
-            <li class="burger__item"><a href="#" class="burger__link">Галерея</a></li>
-            <li class="burger__item"><a href="#" class="burger__link">Каталог</a></li>
-            <li class="burger__item"><a href="#" class="burger__link">События</a></li>
-            <li class="burger__item"><a href="#" class="burger__link">Издания</a></li>
-            <li class="burger__item"><a href="#" class="burger__link">Проекты</a></li>
-            <li class="burger__item"><a href="#" class="burger__link">Контакты</a></li>
-          </ul>
-          <div class="btn burger__log" tabindex="0">
-            <svg class="log__icon" width="13" height="13" viewbox="0 0 13 13" fill="white" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z"/>
-            </svg>
-            <button class="log__in" tabindex="-1">Войти</button>
-          </div>
-        </nav>
+        <button class="header__burger" aria-label="Меню"><span class="burger__menu"></span></button>
         <a href="#" class="header__logo">
           <img src="./img/header/logo.svg" alt="Логотип" class="logo__icon">
         </a>
@@ -49,99 +39,91 @@
             <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
           </ul>
         </nav>
-        <div class="header__log" tabindex="0">
-          <svg class="log__icon" width="13" height="13" viewbox="0 0 13 13" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z"/>
-          </svg>
-          <button class="log__in" tabindex="-1">Войти</button>
-        </div>
-        <button class="header__search" aria-label="Поиск">
-          <svg class="search__icon" width="23" height="22" viewbox="0 0 23 22" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"/>
-          </svg>
-          <input class="search__open">
-          <span class="search__close search__close--hidden"></span>
+        <button class="log__in">
+          <svg class="log__icon" width="13" height="13"><use xlink:href="#log__icon"></use></svg>
+          Войти
         </button>
+        <button class="header__search" aria-label="Поиск">
+          <svg class="search__icon" width="23" height="22"><use xlink:href="#search__icon"></use></svg>
+          <span class="search__close"></span>
+        </button>
+        <input class="search__open">
       </div>
     </div>
     <div class="header__wrap">
       <div class="container">
         <div class="header__catalogy">
           <ul class="catalogy__list">
-            <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link" id="catalogy__link-1">Реализм</a>
+            <li class="catalogy__item">
+              <button class="catalogy__link" id="catalogy__link-1">Реализм</button>
               <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-1">Тинторетто</li>
-                <li class="item__inner item__inner--bg-2">Фридрих</li>
-                <li class="item__inner item__inner--bg-3">Леонардо</li>
-                <li class="item__inner item__inner--bg-4">Верроккьо</li>
-                <li class="item__inner item__inner--bg-1">Тинторетто</li>
-                <li class="item__inner item__inner--bg-2">Фридрих</li>
-                <li class="item__inner item__inner--bg-3">Леонардо</li>
-                <li class="item__inner item__inner--bg-4">Верроккьо</li>
+                <li class="item__inner item__inner--bg-1"><a href="#">Тинторетто</a></li>
+                <li class="item__inner item__inner--bg-2"><a href="#">Фридрих</a></li>
+                <li class="item__inner item__inner--bg-3"><a href="#">Леонардо</a></li>
+                <li class="item__inner item__inner--bg-4"><a href="#">Верроккьо</a></li>
+                <li class="item__inner item__inner--bg-1"><a href="#">Тинторетто</a></li>
+                <li class="item__inner item__inner--bg-2"><a href="#">Фридрих</a></li>
+                <li class="item__inner item__inner--bg-3"><a href="#">Леонардо</a></li>
+                <li class="item__inner item__inner--bg-4"><a href="#">Верроккьо</a></li>
               </ul>
             </li>
-            <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link" id="catalogy__link-2">Импрессионизм</a>
+            <li class="catalogy__item">
+              <button class="catalogy__link" id="catalogy__link-2">Импрессионизм</button>
               <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-5">Моне</li>
-                <li class="item__inner item__inner--bg-6">Сислей</li>
-                <li class="item__inner item__inner--bg-7">Мане</li>
-                <li class="item__inner item__inner--bg-8">Ренуар</li>
-                <li class="item__inner item__inner--bg-5">Моне</li>
-                <li class="item__inner item__inner--bg-6">Сислей</li>
-                <li class="item__inner item__inner--bg-7">Мане</li>
-                <li class="item__inner item__inner--bg-8">Ренуар</li>
+                <li class="item__inner item__inner--bg-5"><a href="#">Моне</a></li>
+                <li class="item__inner item__inner--bg-6"><a href="#">Сислей</a></li>
+                <li class="item__inner item__inner--bg-7"><a href="#">Мане</a></li>
+                <li class="item__inner item__inner--bg-8"><a href="#">Ренуар</a></li>
+                <li class="item__inner item__inner--bg-5"><a href="#">Моне</a></li>
+                <li class="item__inner item__inner--bg-6"><a href="#">Сислей</a></li>
+                <li class="item__inner item__inner--bg-7"><a href="#">Мане</a></li>
+                <li class="item__inner item__inner--bg-8"><a href="#">Ренуар</a></li>
               </ul>
             </li>
-            <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link" id="catalogy__link-3">Постимпрессионизм</a>
+            <li class="catalogy__item">
+              <button class="catalogy__link" id="catalogy__link-3">Постимпрессионизм</button>
               <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-9">Ван Гог</li>
-                <li class="item__inner item__inner--bg-10">Сезанн</li>
-                <li class="item__inner item__inner--bg-11">Гоген</li>
-                <li class="item__inner item__inner--bg-12">Сёра</li>
-                <li class="item__inner item__inner--bg-9">Ван Гог</li>
-                <li class="item__inner item__inner--bg-10">Сезанн</li>
-                <li class="item__inner item__inner--bg-11">Гоген</li>
-                <li class="item__inner item__inner--bg-12">Сёра</li>
+                <li class="item__inner item__inner--bg-9"><a href="#">Ван Гог</a></li>
+                <li class="item__inner item__inner--bg-10"><a href="#">Сезанн</a></li>
+                <li class="item__inner item__inner--bg-11"><a href="#">Гоген</a></li>
+                <li class="item__inner item__inner--bg-12"><a href="#">Сёра</a></li>
+                <li class="item__inner item__inner--bg-9"><a href="#">Ван Гог</a></li>
+                <li class="item__inner item__inner--bg-10"><a href="#">Сезанн</a></li>
+                <li class="item__inner item__inner--bg-11"><a href="#">Гоген</a></li>
+                <li class="item__inner item__inner--bg-12"><a href="#">Сёра</a></li>
               </ul>
             </li>
-            <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link" id="catalogy__link-4">Авангард</a>
+            <li class="catalogy__item">
+              <button class="catalogy__link" id="catalogy__link-4">Авангард</button>
               <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-13">Кандинский</li>
-                <li class="item__inner item__inner--bg-14">Маринетти</li>
-                <li class="item__inner item__inner--bg-15">Малевич</li>
-                <li class="item__inner item__inner--bg-16">Пикассо</li>
-                <li class="item__inner item__inner--bg-13">Кандинский</li>
-                <li class="item__inner item__inner--bg-14">Маринетти</li>
-                <li class="item__inner item__inner--bg-15">Малевич</li>
-                <li class="item__inner item__inner--bg-16">Пикассо</li>
+                <li class="item__inner item__inner--bg-13"><a href="#">Кандинский</a></li>
+                <li class="item__inner item__inner--bg-14"><a href="#">Маринетти</a></li>
+                <li class="item__inner item__inner--bg-15"><a href="#">Малевич</a></li>
+                <li class="item__inner item__inner--bg-16"><a href="#">Пикассо</a></li>
+                <li class="item__inner item__inner--bg-13"><a href="#">Кандинский</a></li>
+                <li class="item__inner item__inner--bg-14"><a href="#">Маринетти</a></li>
+                <li class="item__inner item__inner--bg-15"><a href="#">Малевич</a></li>
+                <li class="item__inner item__inner--bg-16"><a href="#">Пикассо</a></li>
               </ul>
             </li>
-            <li class="catalogy__item" tabindex="0">
-              <a href="#" class="catalogy__link" id="catalogy__link-5">Футуризм</a>
+            <li class="catalogy__item">
+              <button class="catalogy__link" id="catalogy__link-5">Футуризм</button>
               <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-17">Карра</li>
-                <li class="item__inner item__inner--bg-18">Прателла</li>
-                <li class="item__inner item__inner--bg-19">Северини</li>
-                <li class="item__inner item__inner--bg-20">Балла</li>
-                <li class="item__inner item__inner--bg-17">Карра</li>
-                <li class="item__inner item__inner--bg-18">Прателла</li>
-                <li class="item__inner item__inner--bg-19">Северини</li>
-                <li class="item__inner item__inner--bg-20">Балла</li>
+                <li class="item__inner item__inner--bg-17"><a href="#">Карра</a></li>
+                <li class="item__inner item__inner--bg-18"><a href="#">Прателла</a></li>
+                <li class="item__inner item__inner--bg-19"><a href="#">Северини</a></li>
+                <li class="item__inner item__inner--bg-20"><a href="#">Балла</a></li>
+                <li class="item__inner item__inner--bg-17"><a href="#">Карра</a></li>
+                <li class="item__inner item__inner--bg-18"><a href="#">Прателла</a></li>
+                <li class="item__inner item__inner--bg-19"><a href="#">Северини</a></li>
+                <li class="item__inner item__inner--bg-20"><a href="#">Балла</a></li>
               </ul>
             </li>
           </ul>
         </div>
         <div class="header__search">
           <button class="search__btn" aria-label="Поиск">
-            <svg class="search__icon" width="23" height="22" viewbox="0 0 23 22" fill="white" xmlns="http://www.w3.org/2000/svg">
-              <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"/>
-            </svg>
+            <svg class="search__icon" width="23" height="22"><use xlink:href="#search__icon"></use></svg>
           </button>
           <input class="search__input" placeholder="Поиск по сайту">
         </div>
@@ -149,6 +131,7 @@
     </div>
   </header>
   <main>
+    <h1 class="title__body">Blanchard — художественная галерея</h1>
     <section class="section__hero">
       <div class="container">
         <div class="swiper-container hero__slider">
@@ -158,17 +141,18 @@
             <div class="swiper-slide hero__bg hero__bg--3"></div>
           </div>
         </div>
-        <h1 class="hero__title">Прикоснитесь к&nbsp;прекрасному</h1>
+        <h2 class="hero__title">Прикоснитесь к&nbsp;прекрасному</h2>
         <p class="hero__desc">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
-        <button class="btn hero__btn">Подписаться на рассылку</button>
+        <a href="#map" class="btn hero__btn">Подписаться на рассылку</a>
       </div>
     </section>
   </main>
 
     <!--- JS -->
-    <script src="js/swiper-bundle.min.js"></script>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/simplebar.min.js"></script>
+    <!-- <script src="js/swiper-bundle.min.js"></script> -->
     <!-- <script src="js/jquery-ui.min.js"></script> -->
+    <script src="js/main.js"></script>
 </body>
 </html>
