@@ -45,4 +45,9 @@ $(document).ready(function() {
     });
     $(this).toggleClass("catalogy__link--open");
   });
+  $(document).click(function (event) {
+    if ( !$(".catalogy__link").is(event.target)) {
+      $(".catalogy__link").removeClass("catalogy__link--open");
+    }
+  });
 });

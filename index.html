@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="html">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,11 @@
   <title>Blanchard — художественная галерея</title>
   <!--- CSS -->
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="css/simplebar.min.css"/>
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/simplebar.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="body">
   <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
     <symbol id="log__icon" viewbox="0 0 13 13">
       <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z"/>
@@ -24,105 +24,105 @@
   <header class="header">
     <div class="header__wrap">
       <div class="container">
-        <button class="header__burger" aria-label="Меню"><span class="burger__menu"></span></button>
-        <a href="#" class="header__logo">
-          <img src="./img/header/logo.svg" alt="Логотип" class="logo__icon">
+        <button class="button-reset header__burger burger" aria-label="Меню"><span class="burger__menu"></span></button>
+        <a href="#" class="a-reset header__logo logo">
+          <img src="./img/header/logo.svg" alt="Логотип" class="img-reset logo__icon">
         </a>
-        <nav class="header__nav">
-          <ul class="nav__list">
-            <li class="nav__item"><a href="#" class="nav__link">О нас</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Галерея</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Каталог</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">События</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Издания</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Проекты</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+        <nav class="header__nav nav">
+          <ul class="ul-reset nav__list">
+            <li class="nav__item"><a href="#" class="a-reset nav__link">О нас</a></li>
+            <li class="nav__item"><a href="#" class="a-reset nav__link">Галерея</a></li>
+            <li class="nav__item"><a href="#" class="a-reset nav__link">Каталог</a></li>
+            <li class="nav__item"><a href="#" class="a-reset nav__link">События</a></li>
+            <li class="nav__item"><a href="#" class="a-reset nav__link">Издания</a></li>
+            <li class="nav__item"><a href="#" class="a-reset nav__link">Проекты</a></li>
+            <li class="nav__item"><a href="#" class="a-reset nav__link">Контакты</a></li>
           </ul>
         </nav>
-        <button class="log__in">
-          <svg class="log__icon" width="13" height="13"><use xlink:href="#log__icon"></use></svg>
+        <button class="button-reset header__log-in log-in">
+          <svg class="log-in__icon" width="13" height="13"><use xlink:href="#log__icon"></use></svg>
           Войти
         </button>
-        <button class="header__search" aria-label="Поиск">
+        <button class="button-reset header__search search" aria-label="Поиск">
           <svg class="search__icon" width="23" height="22"><use xlink:href="#search__icon"></use></svg>
           <span class="search__close"></span>
         </button>
-        <input class="search__open">
+        <input class="header__search-open">
       </div>
     </div>
     <div class="header__wrap">
       <div class="container">
-        <div class="header__catalogy">
-          <ul class="catalogy__list">
-            <li class="catalogy__item">
-              <button class="catalogy__link" id="catalogy__link-1">Реализм</button>
-              <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-1"><a href="#">Тинторетто</a></li>
-                <li class="item__inner item__inner--bg-2"><a href="#">Фридрих</a></li>
-                <li class="item__inner item__inner--bg-3"><a href="#">Леонардо</a></li>
-                <li class="item__inner item__inner--bg-4"><a href="#">Верроккьо</a></li>
-                <li class="item__inner item__inner--bg-1"><a href="#">Тинторетто</a></li>
-                <li class="item__inner item__inner--bg-2"><a href="#">Фридрих</a></li>
-                <li class="item__inner item__inner--bg-3"><a href="#">Леонардо</a></li>
-                <li class="item__inner item__inner--bg-4"><a href="#">Верроккьо</a></li>
+        <div class="header__catalogy catalogy">
+          <ul class="ul-reset catalogy__list">
+            <li class="catalogy__item item">
+              <button class="button-reset catalogy__link" id="catalogy__link-1">Реализм</button>
+              <ul class="ul-reset item__list" data-simplebar>
+                <li class="item__inner item__inner--bg-1"><a href="#" class="a-reset item__link">Тинторетто</a></li>
+                <li class="item__inner item__inner--bg-2"><a href="#" class="a-reset item__link">Фридрих</a></li>
+                <li class="item__inner item__inner--bg-3"><a href="#" class="a-reset item__link">Леонардо</a></li>
+                <li class="item__inner item__inner--bg-4"><a href="#" class="a-reset item__link">Верроккьо</a></li>
+                <li class="item__inner item__inner--bg-1"><a href="#" class="a-reset item__link">Тинторетто</a></li>
+                <li class="item__inner item__inner--bg-2"><a href="#" class="a-reset item__link">Фридрих</a></li>
+                <li class="item__inner item__inner--bg-3"><a href="#" class="a-reset item__link">Леонардо</a></li>
+                <li class="item__inner item__inner--bg-4"><a href="#" class="a-reset item__link">Верроккьо</a></li>
               </ul>
             </li>
-            <li class="catalogy__item">
-              <button class="catalogy__link" id="catalogy__link-2">Импрессионизм</button>
-              <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-5"><a href="#">Моне</a></li>
-                <li class="item__inner item__inner--bg-6"><a href="#">Сислей</a></li>
-                <li class="item__inner item__inner--bg-7"><a href="#">Мане</a></li>
-                <li class="item__inner item__inner--bg-8"><a href="#">Ренуар</a></li>
-                <li class="item__inner item__inner--bg-5"><a href="#">Моне</a></li>
-                <li class="item__inner item__inner--bg-6"><a href="#">Сислей</a></li>
-                <li class="item__inner item__inner--bg-7"><a href="#">Мане</a></li>
-                <li class="item__inner item__inner--bg-8"><a href="#">Ренуар</a></li>
+            <li class="catalogy__item item">
+              <button class="button-reset catalogy__link" id="catalogy__link-2">Импрессионизм</button>
+              <ul class="ul-reset item__list" data-simplebar>
+                <li class="item__inner item__inner--bg-5"><a href="#" class="a-reset item__link">Моне</a></li>
+                <li class="item__inner item__inner--bg-6"><a href="#" class="a-reset item__link">Сислей</a></li>
+                <li class="item__inner item__inner--bg-7"><a href="#" class="a-reset item__link">Мане</a></li>
+                <li class="item__inner item__inner--bg-8"><a href="#" class="a-reset item__link">Ренуар</a></li>
+                <li class="item__inner item__inner--bg-5"><a href="#" class="a-reset item__link">Моне</a></li>
+                <li class="item__inner item__inner--bg-6"><a href="#" class="a-reset item__link">Сислей</a></li>
+                <li class="item__inner item__inner--bg-7"><a href="#" class="a-reset item__link">Мане</a></li>
+                <li class="item__inner item__inner--bg-8"><a href="#" class="a-reset item__link">Ренуар</a></li>
               </ul>
             </li>
-            <li class="catalogy__item">
-              <button class="catalogy__link" id="catalogy__link-3">Постимпрессионизм</button>
-              <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-9"><a href="#">Ван Гог</a></li>
-                <li class="item__inner item__inner--bg-10"><a href="#">Сезанн</a></li>
-                <li class="item__inner item__inner--bg-11"><a href="#">Гоген</a></li>
-                <li class="item__inner item__inner--bg-12"><a href="#">Сёра</a></li>
-                <li class="item__inner item__inner--bg-9"><a href="#">Ван Гог</a></li>
-                <li class="item__inner item__inner--bg-10"><a href="#">Сезанн</a></li>
-                <li class="item__inner item__inner--bg-11"><a href="#">Гоген</a></li>
-                <li class="item__inner item__inner--bg-12"><a href="#">Сёра</a></li>
+            <li class="catalogy__item item">
+              <button class="button-reset catalogy__link" id="catalogy__link-3">Постимпрессионизм</button>
+              <ul class="ul-reset item__list" data-simplebar>
+                <li class="item__inner item__inner--bg-9"><a href="#" class="a-reset item__link">Ван Гог</a></li>
+                <li class="item__inner item__inner--bg-10"><a href="#" class="a-reset item__link">Сезанн</a></li>
+                <li class="item__inner item__inner--bg-11"><a href="#" class="a-reset item__link">Гоген</a></li>
+                <li class="item__inner item__inner--bg-12"><a href="#" class="a-reset item__link">Сёра</a></li>
+                <li class="item__inner item__inner--bg-9"><a href="#" class="a-reset item__link">Ван Гог</a></li>
+                <li class="item__inner item__inner--bg-10"><a href="#" class="a-reset item__link">Сезанн</a></li>
+                <li class="item__inner item__inner--bg-11"><a href="#" class="a-reset item__link">Гоген</a></li>
+                <li class="item__inner item__inner--bg-12"><a href="#" class="a-reset item__link">Сёра</a></li>
               </ul>
             </li>
-            <li class="catalogy__item">
-              <button class="catalogy__link" id="catalogy__link-4">Авангард</button>
-              <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-13"><a href="#">Кандинский</a></li>
-                <li class="item__inner item__inner--bg-14"><a href="#">Маринетти</a></li>
-                <li class="item__inner item__inner--bg-15"><a href="#">Малевич</a></li>
-                <li class="item__inner item__inner--bg-16"><a href="#">Пикассо</a></li>
-                <li class="item__inner item__inner--bg-13"><a href="#">Кандинский</a></li>
-                <li class="item__inner item__inner--bg-14"><a href="#">Маринетти</a></li>
-                <li class="item__inner item__inner--bg-15"><a href="#">Малевич</a></li>
-                <li class="item__inner item__inner--bg-16"><a href="#">Пикассо</a></li>
+            <li class="catalogy__item item">
+              <button class="button-reset catalogy__link" id="catalogy__link-4">Авангард</button>
+              <ul class="ul-reset item__list " data-simplebar>
+                <li class="item__inner item__inner--bg-13"><a href="#" class="a-reset item__link">Кандинский</a></li>
+                <li class="item__inner item__inner--bg-14"><a href="#" class="a-reset item__link">Маринетти</a></li>
+                <li class="item__inner item__inner--bg-15"><a href="#" class="a-reset item__link">Малевич</a></li>
+                <li class="item__inner item__inner--bg-16"><a href="#" class="a-reset item__link">Пикассо</a></li>
+                <li class="item__inner item__inner--bg-13"><a href="#" class="a-reset item__link">Кандинский</a></li>
+                <li class="item__inner item__inner--bg-14"><a href="#" class="a-reset item__link">Маринетти</a></li>
+                <li class="item__inner item__inner--bg-15"><a href="#" class="a-reset item__link">Малевич</a></li>
+                <li class="item__inner item__inner--bg-16"><a href="#" class="a-reset item__link">Пикассо</a></li>
               </ul>
             </li>
-            <li class="catalogy__item">
-              <button class="catalogy__link" id="catalogy__link-5">Футуризм</button>
-              <ul class="item__list " data-simplebar>
-                <li class="item__inner item__inner--bg-17"><a href="#">Карра</a></li>
-                <li class="item__inner item__inner--bg-18"><a href="#">Прателла</a></li>
-                <li class="item__inner item__inner--bg-19"><a href="#">Северини</a></li>
-                <li class="item__inner item__inner--bg-20"><a href="#">Балла</a></li>
-                <li class="item__inner item__inner--bg-17"><a href="#">Карра</a></li>
-                <li class="item__inner item__inner--bg-18"><a href="#">Прателла</a></li>
-                <li class="item__inner item__inner--bg-19"><a href="#">Северини</a></li>
-                <li class="item__inner item__inner--bg-20"><a href="#">Балла</a></li>
+            <li class="catalogy__item item">
+              <button class="button-reset catalogy__link" id="catalogy__link-5">Футуризм</button>
+              <ul class="ul-reset item__list " data-simplebar>
+                <li class="item__inner item__inner--bg-17"><a href="#" class="a-reset item__link">Карра</a></li>
+                <li class="item__inner item__inner--bg-18"><a href="#" class="a-reset item__link">Прателла</a></li>
+                <li class="item__inner item__inner--bg-19"><a href="#" class="a-reset item__link">Северини</a></li>
+                <li class="item__inner item__inner--bg-20"><a href="#" class="a-reset item__link">Балла</a></li>
+                <li class="item__inner item__inner--bg-17"><a href="#" class="a-reset item__link">Карра</a></li>
+                <li class="item__inner item__inner--bg-18"><a href="#" class="a-reset item__link">Прателла</a></li>
+                <li class="item__inner item__inner--bg-19"><a href="#" class="a-reset item__link">Северини</a></li>
+                <li class="item__inner item__inner--bg-20"><a href="#" class="a-reset item__link">Балла</a></li>
               </ul>
             </li>
           </ul>
         </div>
-        <div class="header__search">
-          <button class="search__btn" aria-label="Поиск">
+        <div class="header__search search">
+          <button class="button-reset search__btn" aria-label="Поиск">
             <svg class="search__icon" width="23" height="22"><use xlink:href="#search__icon"></use></svg>
           </button>
           <input class="search__input" placeholder="Поиск по сайту">
@@ -130,20 +130,16 @@
       </div>
     </div>
   </header>
-  <main>
-    <h1 class="title__body">Blanchard — художественная галерея</h1>
-    <section class="section__hero">
+  <main class="section">
+    <h1 class="h-reset title-hidden">Blanchard — художественная галерея</h1>
+    <section class="section__hero hero">
       <div class="container">
-        <div class="swiper-container hero__slider">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide hero__bg hero__bg--1"></div>
-            <div class="swiper-slide hero__bg hero__bg--2"></div>
-            <div class="swiper-slide hero__bg hero__bg--3"></div>
-          </div>
+        <div class="hero__slider">
+            <div class="hero__bg hero__bg--1"></div>
         </div>
-        <h2 class="hero__title">Прикоснитесь к&nbsp;прекрасному</h2>
-        <p class="hero__desc">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
-        <a href="#map" class="btn hero__btn">Подписаться на рассылку</a>
+        <h2 class="h-reset hero__title">Прикоснитесь к&nbsp;прекрасному</h2>
+        <p class="h-reset hero__desc">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
+        <a href="#map" class="a-reset btn hero__btn">Подписаться на рассылку</a>
       </div>
     </section>
   </main>
@@ -151,8 +147,6 @@
     <!--- JS -->
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/simplebar.min.js"></script>
-    <!-- <script src="js/swiper-bundle.min.js"></script> -->
-    <!-- <script src="js/jquery-ui.min.js"></script> -->
     <script src="js/main.js"></script>
 </body>
 </html>
