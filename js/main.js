@@ -1,15 +1,38 @@
 $(document).ready(function() {
   // slider
-  // const swiper = new Swiper('.swiper-container', {
-  //   loop: true,
-  //   autoplay: {
-  //     delay: 9000,
-  //   },
-  //   effect: 'fade',
-  //   fadeEffect: {
-  //     crossFade: true
-  //   },
-  // });
+  const swiper = new Swiper('.swiper-container', {
+    spaceBetween: 50,
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    slidesPerColumn: 2,
+    slidesPerColumnFill: 'row',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        slidesPerColumn: 1,
+        slidesPerGroup: 1,
+      },
+      658: {
+        spaceBetween: 35,
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+      1391: {
+        spaceBetween: 50,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        slidesPerColumn: 2,
+      },
+    }
+  })
 
   //burger menu
   $(".header__burger").click(function() {
@@ -49,5 +72,15 @@ $(document).ready(function() {
     if ( !$(".catalogy__link").is(event.target)) {
       $(".catalogy__link").removeClass("catalogy__link--open");
     }
+  });
+
+  /* customer select
+  src: ./js/choices.min.js and ./css/choices.min.css */
+  const element = document.querySelector('.filter__select');
+  const choices = new Choices(element, {
+    searchEnabled: false,
+    itemSelectText: '',
+    shouldSort: false,
+    placeholder: true,
   });
 });
