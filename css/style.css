@@ -1429,3 +1429,41 @@
     top: 45px;
   }
 }
+/* reset hover-effects in mobil*/
+@media (max-width: 441px) {
+  .nav__link:hover {
+    color: white;
+  }
+  .header__log-in:hover {
+    color: white;
+  }
+  .header__log-in:hover .log-in__icon {
+    fill: white;
+  }
+  .header__search:hover .search__icon {
+    fill: white;
+  }
+  .hero__btn:hover {
+      border-color: transparent;
+  }
+  .swiper-button-next:hover .swiper-icon,
+  .swiper-button-prev:hover .swiper-icon {
+    fill: #666666;
+    stroke: #000;
+  }
+  .login:hover {
+    border-bottom-color: transparent;
+    outline: none;
+  }
+  .slide-img:hover::after,
+  .slide-img:hover::before {
+    opacity: 0;
+  }
+  .slide-img:active::before {
+    opacity: 1;
+    background: rgba(194,131,243,.4) url("../img/gallery/loupe.svg") no-repeat center;
+  }
+  .slide-img:active::after{
+    opacity: 1;
+  }
+}
