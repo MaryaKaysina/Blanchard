@@ -1,4 +1,43 @@
 function createList(arr, yearAdd, path = 'fr') {
+  // Проверка: Франция - с 1500 по 1599
+  if(arr.length === 0) {
+    const notArtBlock = document.createElement('div');
+    const notArtImg = document.createElement('img');
+    const notArtWrap = document.createElement('div');
+    const notArtTitle = document.createElement('h4');
+    const notArtDesc = document.createElement('p');
+    const notArtLink = document.createElement('a');
+
+    notArtImg.classList.add('img-reset');
+    notArtTitle.classList.add('h-reset');
+    notArtDesc.classList.add('h-reset');
+    notArtLink.classList.add('a-reset');
+
+    notArtBlock.classList.add('not-art-block');
+    notArtBlock.classList.add(yearAdd);
+    notArtBlock.style.display = 'none';
+    notArtImg.classList.add('not-art-img');
+    notArtWrap.classList.add('not-art-wrap');
+    notArtTitle.classList.add('not-art-title');
+    notArtDesc.classList.add('not-art-desc');
+    notArtLink.classList.add('not-art-link');
+
+    notArtImg.src = './img/catalog/artists/notArt.svg';
+    notArtImg.alt = 'Здесь пока пусто';
+    notArtTitle.textContent = 'Здесь пока пусто';
+    notArtDesc.textContent = 'А в галерее вы всегда можете найти что-то интересное для себя';
+    notArtLink.textContent = 'В галерею';
+    notArtLink.href = '#gallery';
+
+    notArtBlock.append(notArtImg);
+    notArtWrap.append(notArtTitle);
+    notArtWrap.append(notArtDesc);
+    notArtWrap.append(notArtLink);
+    notArtBlock.append(notArtWrap);
+
+    return notArtBlock;
+  }
+
   const ulList = document.createElement('ul');
   ulList.classList.add('ul-reset');
   ulList.classList.add('years__artists');
@@ -18,13 +57,52 @@ function createList(arr, yearAdd, path = 'fr') {
   }
 
   return ulList;
+
 }
 function createArt(artists, idArt) {
-
+  // Проверка: Франция - с 1400 по 1499 - Домбе, Гийом,
+  //           Германия - с 1400 по 1499 - Виц, Конрад
   const sectionArtImg = document.querySelector('.artist__img');
   const sectionArtH4 = document.querySelector('.artist__title');
   const sectionArtSub = document.querySelector('.artist__subtitle');
   const sectionArtDescr = document.querySelector('.artist__descr');
+  const sectionArtLink = document.querySelector('.artist .not-art-link');
+
+  if(typeof artists.find(artist => artist.id === idArt) == 'undefined') {
+
+    const notArtImg = document.createElement('img');
+    const notArtH4 = document.createElement('h4');
+    const notArtDescr = document.createElement('p');
+    const notArtLink = document.createElement('a');
+
+    notArtImg.classList.add('img-reset');
+    notArtImg.classList.add('artist__img');
+
+    notArtH4.classList.add('h-reset');
+    notArtH4.classList.add('artist__title');
+
+    notArtDescr.classList.add('h-reset');
+    notArtDescr.classList.add('artist__descr');
+    notArtDescr.classList.add('not__artist__descr');
+    notArtDescr.style.marginBottom = '15px';
+
+    notArtLink.classList.add('a-reset');
+    notArtLink.classList.add('not-art-link');
+
+    notArtImg.src = './img/catalog/artists/notArtist.svg';
+    notArtImg.alt = 'Художник';
+    notArtH4.textContent = 'Что мы о нём знаем?';
+    notArtDescr.textContent = 'Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!';
+    notArtLink.textContent = 'В галерею';
+    notArtLink.href = '#gallery';
+
+    sectionArtImg.replaceWith(notArtImg);
+    sectionArtH4.replaceWith(notArtH4);
+    sectionArtSub.replaceWith(notArtDescr);
+    sectionArtDescr.replaceWith(notArtLink);
+
+    return;
+  }
 
   const imgArtArr = artists.find(artist => artist.id === idArt).img;
   const titleArtArr = artists.find(artist => artist.id === idArt).title;
@@ -52,23 +130,28 @@ function createArt(artists, idArt) {
   descreArt.classList.add('artist__descr');
   descreArt.textContent = descrArtArr;
 
+  if(sectionArtLink == null) {
+    sectionArtSub.replaceWith(subtitleArt);
+  } else {
+    sectionArtLink.replaceWith(subtitleArt);
+  }
   sectionArtImg.replaceWith(imgArt);
   sectionArtH4.replaceWith(h4Art);
-  sectionArtSub.replaceWith(subtitleArt);
   sectionArtDescr.replaceWith(descreArt);
 
+  return;
 }
 
 $(document).ready(function() {
   // slider
-  const swiper = new Swiper('.swiper-container', {
+  const swiper = new Swiper('.swiper-container--gallery', {
     spaceBetween: 50,
     slidesPerView: 3,
     slidesPerGroup: 3,
     slidesPerColumn: 2,
     slidesPerColumnFill: 'row',
     pagination: {
-      el: '.swiper-pagination',
+      el: '.swiper-pagination--gallery',
       type: 'fraction',
     },
     navigation: {
@@ -336,6 +419,16 @@ $(document).ready(function() {
       active: false,
     });
 
+    $('.years__item').each(function() {
+      $(this).removeClass('active');
+      $(this).click( function() {
+        $('.years__item').each(function() {
+          $(this).removeClass('active');
+        });
+        $(this).toggleClass('active');
+      });
+    });
+
     $('.years__1400').replaceWith(createList(artistSetFr1400, yearAdd[0]));
     $('.years__1500').replaceWith(createList(artistSetFr1500, yearAdd[1]));
     $('.years__1600').replaceWith(createList(artistSetFr1600, yearAdd[2]));
@@ -365,6 +458,68 @@ $(document).ready(function() {
     });
 
     $('.section__wrapper.section__wrapper--catalog').addClass('active');
+  });
+
+  // events
+  $(".btn--events").click(function(event) {
+    event.preventDefault();
+    $(this).addClass("hidden");
+    $(".events__item").each(function() {
+      $(this).removeClass("hidden");
+      $(this).css("display","block");
+    });
+  });
+
+  // slider-events
+
+  const swiperEvents = document.querySelector('.swiper-container--events');
+  let myswiperEvents;
+
+  function mobileSlider() {
+    if(window.innerWidth <= 658 && swiperEvents.dataset.mobile == 'false') {
+      $(".btn--events").addClass("hidden");
+      $(".events__item").each(function() {
+        $(this).removeClass("hidden");
+        $(this).css("display","flex");
+      });
+      myswiperEvents = new Swiper(swiperEvents, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        slidesPerGroup: 1,
+        slideClass: 'swiper-slide--events',
+        pagination: {
+          el: '.swiper-pagination--events',
+          type: 'bullets',
+        },
+      });
+
+      swiperEvents.dataset.mobile = 'true';
+    }
+
+    if(window.innerWidth > 658) {
+      $(".btn--events").removeClass("hidden");
+      $(".events__item").each(function() {
+        $(this).addClass("hidden");
+      });
+      const oneEvent = $('.events__item')[0];
+      const twoEvent = $('.events__item')[1];
+      const thrEvent = $('.events__item')[2];
+      oneEvent.classList.remove("hidden");
+      twoEvent.classList.remove("hidden");
+      thrEvent.classList.remove("hidden");
+
+      swiperEvents.dataset.mobile = 'false';
+
+      if(swiperEvents.classList.contains('swiper-container-initialized')) {
+        myswiperEvents.destroy();
+      }
+    }
+  }
+
+  mobileSlider();
+
+  window.addEventListener('resize', () => {
+    mobileSlider();
   });
 
 });

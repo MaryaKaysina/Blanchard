@@ -8,6 +8,7 @@ const yearAdd = [
   'years__1900',
   'years__2000',
 ];
+const isNotArt = [];
 // Create catalog fr
 const artistSetFr1400 = [
   'Бартелеми д’Эйк',
@@ -25,10 +26,7 @@ const artistSetFr1400 = [
   'Фуке, Жан',
 ];
 const artistSetFr1500 = [
-  'Биго, Трофим',
-  'Дюве, Жан',
-  'Карон, Антуан',
-  'Лимозен, Леонар',
+
 ];
 const artistSetFr1600 = [
   'Агар, Жак',
