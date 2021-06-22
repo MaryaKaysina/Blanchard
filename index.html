@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/simplebar.min.css">
   <link rel="stylesheet" href="css/choices.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="body">
@@ -473,6 +473,187 @@
         <button class="button-reset btn btn--events">Все события</button>
       </div>
     </section>
+    <section class="section__edition">
+      <div class="container container--edition">
+        <div class="section__wrapper section__wrapper--edition edition">
+          <h2 class="h-reset section__title section__title--edition">Издания</h2>
+          <div class="edition__list">
+            <h3 class="h-reset edition__title">Категории</h3>
+            <ul class="ul-reset edition__choices" data-resize="false">
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-1">
+                <span></span>
+                <label for="check-1" class="edition__label">Бестселлеры</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-2">
+                <span></span>
+                <label for="check-2" class="edition__label">Искусство</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-3">
+                <span></span>
+                <label for="check-3" class="edition__label">Архитектура</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-4" checked>
+                <span></span>
+                <label for="check-4" class="edition__label">Дизайн</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-5">
+                <span></span>
+                <label for="check-5" class="edition__label">Мода</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-6">
+                <span></span>
+                <label for="check-6" class="edition__label">Детям</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-7">
+                <span></span>
+                <label for="check-7" class="edition__label">Художественная литература</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-8">
+                <span></span>
+                <label for="check-8" class="edition__label">Публицистика</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-9">
+                <span></span>
+                <label for="check-9" class="edition__label">Путеводители</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-10">
+                <span></span>
+                <label for="check-10" class="edition__label">Философия</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-11">
+                <span></span>
+                <label for="check-11" class="edition__label">Учебная литература</label>
+              </li>
+              <li class="edition__choice">
+                <input type="checkbox" class="edition__check" id="check-12">
+                <span></span>
+                <label for="check-12" class="edition__label">Журналы и газеты</label>
+              </li>
+            </ul>
+          </div>
+          <div class="edition__price">
+            <h3 class="h-reset edition__title">Цена</h3>
+            <div class="edition__value">
+              <span class="edition__from">От</span>
+              <input type="number" class="edition__input" value="50">
+              <span class="edition__to">до</span>
+              <input type="number" class="edition__input" value="25000">
+              <span class="edition__val">руб.</span>
+            </div>
+          </div>
+        </div>
+        <div class="section__wrapper section__wrapper--edition">
+          <div class="swiper-buttons swiper-buttons--edition">
+            <div class="swiper-button-prev">
+              <svg class="swiper-icon" width="30" height="30"><use xlink:href="#gallery-arrow"></use></svg>
+            </div>
+            <div class="swiper-pagination swiper-pagination--edition"></div>
+            <div class="swiper-button-next swiper-button-next--edition">
+              <svg class="swiper-icon" width="30" height="30"><use xlink:href="#gallery-arrow"></use></svg>
+            </div>
+          </div>
+          <div class="swiper-container swiper-container--edition" data-mobile="false">
+            <div class="swiper-wrapper swiper-wrapper--edition">
+              <div class="swiper-slide swiper-slide--edition slide">
+                <picture>
+                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
+                  <img src="img/edition/1.jpg" alt="slide-1">
+                </picture>
+                <div class="slide__descr">
+                  <h3 class="h-reset slide__title">Искусство цвета</h3>
+                  <span class="slide__price">620 руб</span>
+                  <p class="h-reset slide__author">Иттен, Иоханнес </p>
+                  <button class="button-reset slide__buy">Заказать</button>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide--edition slide">
+                <picture>
+                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
+                  <img src="img/edition/2.jpg" alt="slide-2">
+                </picture>
+                <div class="slide__descr">
+                  <h3 class="h-reset slide__title">Типографика</h3>
+                  <span class="slide__price">2 450 руб</span>
+                  <p class="h-reset slide__author">Рудер, Эмиль</p>
+                  <button class="button-reset slide__buy">Заказать</button>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide--edition slide">
+                <picture>
+                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
+                  <img src="img/edition/3.jpg" alt="slide-3">
+                </picture>
+                <div class="slide__descr">
+                  <h3 class="h-reset slide__title">Книга про буквы</h3>
+                  <span class="slide__price">2 200 руб</span>
+                  <p class="h-reset slide__author">Гордон, Юрий</p>
+                  <button class="button-reset slide__buy">Заказать</button>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide--edition slide">
+                <picture>
+                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
+                  <img src="img/edition/4.png" alt="slide-4">
+                </picture>
+                <div class="slide__descr">
+                  <h3 class="h-reset slide__title">Николай Ильин</h3>
+                  <span class="slide__price">1 100 руб</span>
+                  <p class="h-reset slide__author">Кричевский, Владимир</p>
+                  <button class="button-reset slide__buy">Заказать</button>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide--edition slide">
+                <picture>
+                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
+                  <img src="img/edition/5.png" alt="slide-5">
+                </picture>
+                <div class="slide__descr">
+                  <h3 class="h-reset slide__title">Модульные сетки в граф...</h3>
+                  <span class="slide__price">1 450 руб</span>
+                  <p class="h-reset slide__author">Мюллер-Брокманн, Йозеф</p>
+                  <button class="button-reset slide__buy">Заказать</button>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide--edition slide">
+                <picture>
+                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
+                  <img src="img/edition/6.png" alt="slide-6">
+                </picture>
+                <div class="slide__descr">
+                  <h3 class="h-reset slide__title">Эволюция графических ст...</h3>
+                  <span class="slide__price">3 200 руб</span>
+                  <p class="h-reset slide__author">Хеллер, Чваст</p>
+                  <button class="button-reset slide__buy">Заказать</button>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide--edition slide">
+                <picture>
+                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
+                  <img src="img/edition/7.png" alt="slide-7">
+                </picture>
+                <div class="slide__descr">
+                  <h3 class="h-reset slide__title">Искусство и визуальное в...</h3>
+                  <span class="slide__price">2 200 руб</span>
+                  <p class="h-reset slide__author">Арнхейм, Рудольф</p>
+                  <button class="button-reset slide__buy">Заказать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!--- JS -->
@@ -480,7 +661,7 @@
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/simplebar.min.js"></script>
   <script src="js/choices.min.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
   <script src="js/artistSet.js"></script>
   <script src="js/artist.js"></script>
   <script src="js/main.js"></script>

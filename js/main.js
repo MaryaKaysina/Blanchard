@@ -143,7 +143,7 @@ function createArt(artists, idArt) {
 }
 
 $(document).ready(function() {
-  // slider
+  // slider gallery
   const swiper = new Swiper('.swiper-container--gallery', {
     spaceBetween: 50,
     slidesPerView: 3,
@@ -179,42 +179,42 @@ $(document).ready(function() {
   });
 
   //burger menu
-  $(".header__burger").click(function() {
-    if (!$(".header__nav").hasClass("burger__nav--open")) {
-      $(".header__nav").addClass("burger__nav--open");
-      $(".burger__menu").addClass("burger__menu--close");
+  $('.header__burger').click(function() {
+    if (!$('.header__nav').hasClass('burger__nav--open')) {
+      $('.header__nav').addClass('burger__nav--open');
+      $('.burger__menu').addClass('burger__menu--close');
     } else {
-      $(".header__nav").removeClass("burger__nav--open");
-      $(".burger__menu").removeClass("burger__menu--close");
+      $('.header__nav').removeClass('burger__nav--open');
+      $('.burger__menu').removeClass('burger__menu--close');
     }
   });
 
   //search
-    $(".search__icon").click(function() {
-      if (!$(".header__search").hasClass("header__search--open")) {
-        $(".header__search").addClass("header__search--open");
+    $('.search__icon').click(function() {
+      if (!$('.header__search').hasClass('header__search--open')) {
+        $('.header__search').addClass('header__search--open');
       } else {
-        $(".header__search").removeClass("header__search--open");
+        $('.header__search').removeClass('header__search--open');
       }
     });
-    $(".search__close").click(function() {
-      $(".header__search").removeClass("header__search--open");
+    $('.search__close').click(function() {
+      $('.header__search').removeClass('header__search--open');
     });
 
   //dropdown
-  $(".catalogy__link").click(function(event) {
+  $('.catalogy__link').click(function(event) {
     event.preventDefault();
     let $id = $(this).attr('id');
-    $(".catalogy__link").each(function() {
+    $('.catalogy__link').each(function() {
       if( $( this ).attr('id') !== $id) {
-        $(this).removeClass("catalogy__link--open");
+        $(this).removeClass('catalogy__link--open');
       }
     });
-    $(this).toggleClass("catalogy__link--open");
+    $(this).toggleClass('catalogy__link--open');
   });
   $(document).click(function (event) {
-    if ( !$(".catalogy__link").is(event.target)) {
-      $(".catalogy__link").removeClass("catalogy__link--open");
+    if ( !$('.catalogy__link').is(event.target)) {
+      $('.catalogy__link').removeClass('catalogy__link--open');
     }
   });
 
@@ -413,19 +413,23 @@ $(document).ready(function() {
   /* accordion */
   $(function(){
 
-    $(".years__list").accordion({
+    $('.years__list').accordion({
       collapsible: true,
-      heightStyle: "content",
+      heightStyle: 'content',
       active: false,
     });
 
     $('.years__item').each(function() {
-      $(this).removeClass('active');
       $(this).click( function() {
+        let hasClass = $(this).hasClass('active');
         $('.years__item').each(function() {
           $(this).removeClass('active');
         });
-        $(this).toggleClass('active');
+        if (hasClass) {
+          $(this).removeClass('active');
+        } else {
+          $(this).addClass('active');
+        }
       });
     });
 
@@ -461,12 +465,12 @@ $(document).ready(function() {
   });
 
   // events
-  $(".btn--events").click(function(event) {
+  $('.btn--events').click(function(event) {
     event.preventDefault();
-    $(this).addClass("hidden");
-    $(".events__item").each(function() {
-      $(this).removeClass("hidden");
-      $(this).css("display","block");
+    $(this).addClass('hidden');
+    $('.events__item').each(function() {
+      $(this).removeClass('hidden');
+      $(this).css('display','block');
     });
   });
 
@@ -477,10 +481,10 @@ $(document).ready(function() {
 
   function mobileSlider() {
     if(window.innerWidth <= 658 && swiperEvents.dataset.mobile == 'false') {
-      $(".btn--events").addClass("hidden");
-      $(".events__item").each(function() {
-        $(this).removeClass("hidden");
-        $(this).css("display","flex");
+      $('.btn--events').addClass('hidden');
+      $('.events__item').each(function() {
+        $(this).removeClass('hidden');
+        $(this).css('display','flex');
       });
       myswiperEvents = new Swiper(swiperEvents, {
         slidesPerView: 1,
@@ -497,16 +501,16 @@ $(document).ready(function() {
     }
 
     if(window.innerWidth > 658) {
-      $(".btn--events").removeClass("hidden");
-      $(".events__item").each(function() {
-        $(this).addClass("hidden");
+      $('.btn--events').removeClass('hidden');
+      $('.events__item').each(function() {
+        $(this).addClass('hidden');
       });
       const oneEvent = $('.events__item')[0];
       const twoEvent = $('.events__item')[1];
       const thrEvent = $('.events__item')[2];
-      oneEvent.classList.remove("hidden");
-      twoEvent.classList.remove("hidden");
-      thrEvent.classList.remove("hidden");
+      oneEvent.classList.remove('hidden');
+      twoEvent.classList.remove('hidden');
+      thrEvent.classList.remove('hidden');
 
       swiperEvents.dataset.mobile = 'false';
 
@@ -520,6 +524,111 @@ $(document).ready(function() {
 
   window.addEventListener('resize', () => {
     mobileSlider();
+  });
+
+  // slider-edition
+
+  const swiperEdition = document.querySelector('.swiper-container--edition');
+  let myswiperEdition;
+
+  function mobileSliderEdition() {
+    if(window.innerWidth >= 658 && swiperEdition.dataset.mobile == 'false') {
+      myswiperEdition = new Swiper(swiperEdition, {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        slidesPerGroup: 3,
+        slideClass: 'swiper-slide--edition',
+        pagination: {
+          el: '.swiper-pagination--edition',
+          type: 'fraction',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          658: {
+            spaceBetween: 37,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          861: {
+            spaceBetween: 50,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1391: {
+            spaceBetween: 50,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+        }
+      });
+
+      swiperEdition.dataset.mobile = 'true';
+    }
+
+    if(window.innerWidth < 658) {
+      swiperEdition.dataset.mobile = 'false';
+
+      if(swiperEdition.classList.contains('swiper-container-initialized')) {
+        myswiperEdition.destroy();
+      }
+    }
+  }
+
+  mobileSliderEdition();
+
+  window.addEventListener('resize', () => {
+    mobileSliderEdition();
+  });
+
+  // editon-catalog
+
+  function editionChoice() {
+    $('.edition__check').each(function() {
+      if ($(this).prop('checked')) {
+        $(this).parent().addClass('active');
+        $(this).parent().addClass('edition__choice--close');
+      } else {
+        $(this).parent().removeClass('active');
+        $(this).parent().removeClass('edition__choice--close');
+      }
+    });
+  }
+
+  function editionLoaded() {
+    $('.edition__title').click(function() {
+      if($('.edition__title').hasClass('is-active')) {
+        $('.edition__title').removeClass('is-active');
+        editionChoice();
+      } else {
+        $('.edition__title').addClass('is-active');
+      }
+    });
+
+    $('.edition__check').each(function () {
+      $(this).click(function() {
+        editionChoice();
+      });
+    });
+  }
+
+  function editionCategory() {
+    if(window.innerWidth < 767) {
+      $('.edition__title').removeClass('is-active');
+      $('.edition__title').off();
+      editionChoice();
+      editionLoaded();
+    }
+  }
+
+  editionCategory();
+
+  let timer;
+  window.addEventListener('resize', () => {
+    clearTimeout(timer);
+    timer = setTimeout(editionCategory, 500);
   });
 
 });
