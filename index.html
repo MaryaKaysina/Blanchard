@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/simplebar.min.css">
   <link rel="stylesheet" href="css/choices.min.css">
-  <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/tooltip.css">
+  <link rel="stylesheet" href="css/style.css?ver=300621">
 </head>
 <body class="body">
   <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
@@ -171,11 +172,11 @@
         </p>
         <div class="section__wrapper">
           <div class="swiper-buttons">
-            <div class="swiper-button-prev">
+            <div class="swiper-button-prev swiper-button-prev--gallery">
               <svg class="swiper-icon" width="30" height="30"><use xlink:href="#gallery-arrow"></use></svg>
             </div>
             <div class="swiper-pagination swiper-pagination--gallery"></div>
-            <div class="swiper-button-next">
+            <div class="swiper-button-next swiper-button-next--gallery">
               <svg class="swiper-icon" width="30" height="30"><use xlink:href="#gallery-arrow"></use></svg>
             </div>
           </div>
@@ -184,145 +185,145 @@
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/1.jpg" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/1.png" alt="slide-1" class="slide-img">
+                  <img src="img/gallery/slider/new/320/1.png" alt="slide-1" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/2.jpg" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/2.png" alt="slide-2" class="slide-img">
+                  <img src="img/gallery/slider/new/320/2.png" alt="slide-2" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/3.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/3.png" alt="slide-3" class="slide-img">
+                  <img src="img/gallery/slider/new/320/3.png" alt="slide-3" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/4.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/4.png" alt="slide-4" class="slide-img">
+                  <img src="img/gallery/slider/new/320/4.png" alt="slide-4" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/5.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/5.png" alt="slide-5" class="slide-img">
+                  <img src="img/gallery/slider/new/320/5.png" alt="slide-5" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/6.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/6.png" alt="slide-6" class="slide-img">
+                  <img src="img/gallery/slider/new/320/6.png" alt="slide-6" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/7.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/7.png" alt="slide-7" class="slide-img">
+                  <img src="img/gallery/slider/new/320/7.png" alt="slide-7" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/8.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/8.png" alt="slide-8" class="slide-img">
+                  <img src="img/gallery/slider/new/320/8.png" alt="slide-8" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/9.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/9.png" alt="slide-9" class="slide-img">
+                  <img src="img/gallery/slider/new/320/9.png" alt="slide-9" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/10.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/10.png" alt="slide-10" class="slide-img">
+                  <img src="img/gallery/slider/new/320/10.png" alt="slide-10" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/11.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/11.png" alt="slide-11" class="slide-img">
+                  <img src="img/gallery/slider/new/320/11.png" alt="slide-11" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/12.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/12.png" alt="slide-12" class="slide-img">
+                  <img src="img/gallery/slider/new/320/12.png" alt="slide-12" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/13.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/13.png" alt="slide-13" class="slide-img">
+                  <img src="img/gallery/slider/new/320/13.png" alt="slide-13" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/14.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/14.png" alt="slide-14" class="slide-img">
+                  <img src="img/gallery/slider/new/320/14.png" alt="slide-14" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/15.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/15.png" alt="slide-15" class="slide-img">
+                  <img src="img/gallery/slider/new/320/15.png" alt="slide-15" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/16.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/16.png" alt="slide-16" class="slide-img">
+                  <img src="img/gallery/slider/new/320/16.png" alt="slide-16" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/17.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/17.png" alt="slide-17" class="slide-img">
+                  <img src="img/gallery/slider/new/320/17.png" alt="slide-17" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/18.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/18.png" alt="slide-18" class="slide-img">
+                  <img src="img/gallery/slider/new/320/18.png" alt="slide-18" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/19.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/19.png" alt="slide-19" class="slide-img">
+                  <img src="img/gallery/slider/new/320/19.png" alt="slide-19" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/20.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/20.png" alt="slide-20" class="slide-img">
+                  <img src="img/gallery/slider/new/320/20.png" alt="slide-20" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/21.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/21.png" alt="slide-21" class="slide-img">
+                  <img src="img/gallery/slider/new/320/21.png" alt="slide-21" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/22.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/22.png" alt="slide-22" class="slide-img">
+                  <img src="img/gallery/slider/new/320/22.png" alt="slide-22" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/23.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/23.png" alt="slide-23" class="slide-img">
+                  <img src="img/gallery/slider/new/320/23.png" alt="slide-23" class="slide-img" loading="lazy">
                 </picture>
               </div>
               <div class="swiper-slide">
                 <picture class="slide-img">
                   <source srcset="img/gallery/slider/new/24.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/24.png" alt="slide-24" class="slide-img">
+                  <img src="img/gallery/slider/new/320/24.png" alt="slide-24" class="slide-img" loading="lazy">
                 </picture>
               </div>
             </div>
@@ -567,8 +568,7 @@
             <div class="swiper-wrapper swiper-wrapper--edition">
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
-                  <img src="img/edition/1.jpg" alt="slide-1">
+                  <img src="img/edition/1.jpg" alt="slide-1" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Искусство цвета</h3>
@@ -579,8 +579,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
-                  <img src="img/edition/2.jpg" alt="slide-2">
+                  <img src="img/edition/2.jpg" alt="slide-2" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Типографика</h3>
@@ -591,8 +590,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
-                  <img src="img/edition/3.jpg" alt="slide-3">
+                  <img src="img/edition/3.jpg" alt="slide-3" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Книга про буквы</h3>
@@ -603,8 +601,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
-                  <img src="img/edition/4.png" alt="slide-4">
+                  <img src="img/edition/4.png" alt="slide-4" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Николай Ильин</h3>
@@ -615,8 +612,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
-                  <img src="img/edition/5.png" alt="slide-5">
+                  <img src="img/edition/5.png" alt="slide-5" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Модульные сетки в граф...</h3>
@@ -627,8 +623,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
-                  <img src="img/edition/6.png" alt="slide-6">
+                  <img src="img/edition/6.png" alt="slide-6" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Эволюция графических ст...</h3>
@@ -639,8 +634,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <!-- <source srcset="img" media="(min-width: 442px)"> -->
-                  <img src="img/edition/7.png" alt="slide-7">
+                  <img src="img/edition/7.png" alt="slide-7" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Искусство и визуальное в...</h3>
@@ -654,6 +648,109 @@
         </div>
       </div>
     </section>
+    <section class="section__projects">
+      <div class="container">
+        <h2 class="h-reset section__title section__title--projects">Проекты</h2>
+        <p class="h-reset section__descr section__descr--projects tool">
+          Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное <span class="no-wrap">информационно-пропагандистское</span>
+          <span class="tool__block liteTooltip" tabindex="0" data-tooltip-focus="Пример современных тенденций - современная методология разработки">
+            <span class="tool__icon">i</span>
+          </span>
+          обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
+          <span class="tool__block liteTooltip" tabindex="0" data-tooltip-focus="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции">
+            <span class="tool__icon">i</span>
+          </span>
+          исключительно в разрезе маркетинговых и финансовых
+          <span class="tool__block liteTooltip" tabindex="0" data-tooltip-focus="В стремлении повысить качество">
+            <span class="tool__icon">i</span>
+          </span>
+          предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее: <a href="#" class="section__link">blanchard-art.ru/projects/about</a>
+        </p>
+        <h3 class="h-reset section__partners">Партнёры проектов:</h3>
+        <div class="swiper-container swiper-container--projects">
+          <div class="swiper-wrapper swiper-wrapper--projects">
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/2_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/2.png" alt="Freelands Foundation" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/3_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/3.png" alt="Institute for Contemporary Art" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/1_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/1.png" alt="Workhouse - Arts center" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/4_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/4.png" alt="1849" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/5_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/5.png" alt="Hiscox" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/6_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/6.png" alt="Camden" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/7_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/7.png" alt="Stassen" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/8_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/8.png" alt="Watts gallery artists village" class="partners">
+                </picture>
+              </a>
+            </div>
+            <div class="swiper-slide swiper-slide--projects">
+              <a href="#" class="a-reset swiper-slide__link">
+                <picture>
+                  <source srcset="img/projects/9_1.png" media="(max-width: 891px)">
+                  <img src="img/projects/9.png" alt="Esad" class="partners">
+                </picture>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-prev swiper-button-prev--projects">
+          <svg class="swiper-icons swiper-icons--projects" width="30" height="30"><use xlink:href="#gallery-arrow"></use></svg>
+        </div>
+        <div class="swiper-button-next swiper-button-next--projects">
+          <svg class="swiper-icons swiper-icons--projects" width="30" height="30"><use xlink:href="#gallery-arrow"></use></svg>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!--- JS -->
@@ -664,6 +761,7 @@
   <script src="js/swiper-bundle.min.js"></script>
   <script src="js/artistSet.js"></script>
   <script src="js/artist.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/tooltip.js"></script>
+  <script src="js/main.js?ver=300621"></script>
 </body>
 </html>

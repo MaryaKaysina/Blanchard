@@ -155,8 +155,8 @@ $(document).ready(function() {
       type: 'fraction',
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next--gallery',
+      prevEl: '.swiper-button-prev--gallery',
     },
     breakpoints: {
       320: {
@@ -543,8 +543,8 @@ $(document).ready(function() {
           type: 'fraction',
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next--edition',
+          prevEl: '.swiper-button-prev--edition',
         },
         breakpoints: {
           658: {
@@ -629,6 +629,34 @@ $(document).ready(function() {
   window.addEventListener('resize', () => {
     clearTimeout(timer);
     timer = setTimeout(editionCategory, 500);
+  });
+
+  // projects slider
+  const swiperProjects = new Swiper('.swiper-container--projects', {
+    spaceBetween: 50,
+    slidesPerView: 3,
+    slideClass: 'swiper-slide--projects',
+    navigation: {
+      nextEl: '.swiper-button-next--projects',
+      prevEl: '.swiper-button-prev--projects',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+      658: {
+        spaceBetween: 35,
+        slidesPerView: 2,
+      },
+      891: {
+        spaceBetween: 50,
+        slidesPerView: 2,
+      },
+      1250: {
+        spaceBetween: 50,
+        slidesPerView: 3,
+      },
+    }
   });
 
 });
