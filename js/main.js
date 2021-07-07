@@ -143,6 +143,68 @@ function createArt(artists, idArt) {
 }
 
 $(document).ready(function() {
+  //header fixed
+  function headerFixed() {
+    $(window).scroll(function(){
+      if(window.innerWidth > 1250) {
+        if ($(this).scrollTop() > 171) {
+          $('.header').addClass('fixed');
+          $('.section__hero').css("margin-top", "171px");
+        } else {
+          $('.header').removeClass('fixed');
+          $('.section__hero').css("margin-top", "0");
+        }
+        return;
+      }
+      if(window.innerWidth > 441 && window.innerWidth <= 1250) {
+        if ($(this).scrollTop() > 100) {
+          $('.header').addClass('fixed');
+          $('.section__hero').css("margin-top", "100px");
+        } else {
+          $('.header').removeClass('fixed');
+          $('.section__hero').css("margin-top", "0");
+        }
+        return;
+      }
+      if(window.innerWidth <= 441) {
+        if ($(this).scrollTop() > 45) {
+          $('.header').addClass('fixed');
+          $('.section__hero').css("margin-top", "45px");
+        } else {
+          $('.header').removeClass('fixed');
+          $('.section__hero').css("margin-top", "0");
+        }
+        return;
+      }
+    });
+  }
+
+  headerFixed();
+
+  window.addEventListener('resize', () => {
+    headerFixed();
+  });
+
+  // scroll to link
+  $('.nav__link').click(function(e){
+		e.preventDefault();
+
+		let href = $(this).attr('href');
+		let offset = $(href).offset().top - $('.header').outerHeight();
+
+		$('body, html').animate({
+			scrollTop: offset,
+		}, 500);
+	});
+
+	$('.footer__link').click(function(e){
+		e.preventDefault();
+
+		$('body, html').animate({
+			scrollTop: 0,
+		}, 500);
+	});
+
   // slider gallery
   const swiper = new Swiper('.swiper-container--gallery', {
     spaceBetween: 50,
@@ -183,6 +245,12 @@ $(document).ready(function() {
     if (!$('.header__nav').hasClass('burger__nav--open')) {
       $('.header__nav').addClass('burger__nav--open');
       $('.burger__menu').addClass('burger__menu--close');
+
+      $('.nav__link').click(function() {
+        $('.header__nav').removeClass('burger__nav--open');
+        $('.burger__menu').removeClass('burger__menu--close');
+      });
+
     } else {
       $('.header__nav').removeClass('burger__nav--open');
       $('.burger__menu').removeClass('burger__menu--close');
@@ -433,6 +501,23 @@ $(document).ready(function() {
       });
     });
 
+    $('.years__item').each(function() {
+      $(this).keydown( function() {
+        if (window.event.key === "Enter") {
+          let hasClass = $(this).hasClass('active');
+          $('.years__item').each(function() {
+            $(this).removeClass('active');
+          });
+          if (hasClass) {
+            $(this).removeClass('active');
+          } else {
+            $(this).addClass('active');
+            $('.years__title').addClass('ui-state-active');
+          }
+        }
+      });
+    });
+
     $('.years__1400').replaceWith(createList(artistSetFr1400, yearAdd[0]));
     $('.years__1500').replaceWith(createList(artistSetFr1500, yearAdd[1]));
     $('.years__1600').replaceWith(createList(artistSetFr1600, yearAdd[2]));
@@ -475,7 +560,6 @@ $(document).ready(function() {
   });
 
   // slider-events
-
   const swiperEvents = document.querySelector('.swiper-container--events');
   let myswiperEvents;
 
@@ -584,15 +668,14 @@ $(document).ready(function() {
   });
 
   // editon-catalog
-
   function editionChoice() {
-    $('.edition__check').each(function() {
-      if ($(this).prop('checked')) {
-        $(this).parent().addClass('active');
-        $(this).parent().addClass('edition__choice--close');
+    $('.edition__choice').each(function() {
+      if ($(this).children().prop('checked')) {
+        $(this).addClass('active');
+        $(this).addClass('edition__choice--close');
       } else {
-        $(this).parent().removeClass('active');
-        $(this).parent().removeClass('edition__choice--close');
+        $(this).removeClass('active');
+        $(this).removeClass('edition__choice--close');
       }
     });
   }
@@ -607,9 +690,17 @@ $(document).ready(function() {
       }
     });
 
-    $('.edition__check').each(function () {
+    $('.edition__choice').each(function () {
       $(this).click(function() {
-        editionChoice();
+        if (!$(this).children().prop('checked')) {
+          $(this).addClass('active');
+          $(this).addClass('edition__choice--close');
+          $(this).children().prop( "checked", true );
+        } else {
+          $(this).removeClass('active');
+          $(this).removeClass('edition__choice--close');
+          $(this).children().prop( "checked", false );
+        }
       });
     });
   }
@@ -781,6 +872,19 @@ $(document).ready(function() {
       name: 'Недопустимый формат',
       tel: 'Недопустимый формат',
     },
+    submitHandler(form) {
+      let th = $(form);
+
+      $.ajax({
+      type: 'POST',
+      url: 'mail.php',
+      data: th.serialize(),
+      }).done(() => {
+        th.trigger('reset');
+      });
+
+      return false;
+    }
   });
 
 });
