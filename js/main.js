@@ -659,6 +659,130 @@ $(document).ready(function() {
     }
   });
 
+    // customer Yandex-map
+  ymaps.ready(init);
+  function init(){
+    var myMap = new ymaps.Map("contacts__map", {
+          center: [55.75890365305267,37.63876817224112],
+          zoom: 14,
+          controls: ['geolocationControl']
+      }, {
+          // Зададим опции для элементов управления.
+          geolocationControlFloat: 'right'
+      });
+
+      // Создадим пользовательский макет ползунка масштаба.
+      ZoomLayout = ymaps.templateLayoutFactory.createClass("<div class='custom-zoom'>" +
+      "<div class='zoom-in' id='zoom-in' class='btn'><span class='icon-plus'>+</span></div>" +
+      "<div class='zoom-out' id='zoom-out' class='btn'><span class='icon-minus'>&ndash;</span></div>" +
+      "</div>", {
+
+      build: function () {
+          ZoomLayout.superclass.build.call(this);
+          this.zoomInCallback = ymaps.util.bind(this.zoomIn, this);
+          this.zoomOutCallback = ymaps.util.bind(this.zoomOut, this);
+          $('#zoom-in').bind('click', this.zoomInCallback);
+          $('#zoom-out').bind('click', this.zoomOutCallback);
+      },
+
+      clear: function () {
+          $('#zoom-in').unbind('click', this.zoomInCallback);
+          $('#zoom-out').unbind('click', this.zoomOutCallback);
+
+          ZoomLayout.superclass.clear.call(this);
+      },
+
+      zoomIn: function () {
+          var map = this.getData().control.getMap();
+          map.setZoom(map.getZoom() + 1, {checkZoomRange: true});
+      },
+
+      zoomOut: function () {
+          var map = this.getData().control.getMap();
+          map.setZoom(map.getZoom() - 1, {checkZoomRange: true});
+      }
+    }),
+    zoomControl = new ymaps.control.ZoomControl({options: {layout: ZoomLayout}});
+
+    var myPlacemark = new ymaps.Placemark([55.75846806898367,37.60108849999989], {}, {
+      iconLayout: 'default#image',
+      iconImageHref: 'img/contacts/point.svg',
+      iconImageSize: [20, 20],
+      iconImageOffset: [0, 0]
+    });
+
+    myMap.controls.add(zoomControl);
+    myMap.geoObjects.add(myPlacemark);
+    myMap.controls.remove('searchControl');
+    myMap.controls.remove('trafficControl');
+    myMap.controls.remove('typeSelector');
+    myMap.controls.remove('fullscreenControl');
+    myMap.controls.remove('rulerControl');
+    myMap.behaviors.disable(['scrollZoom']);
+
+    function checkWidth() {
+      if(window.innerWidth < 1361) {
+        myMap.setCenter([55.75846806898367,37.60108849999989]);
+      } else {
+        myMap.setCenter([55.75890365305267,37.63876817224112]);
+      }
+      if(window.innerWidth < 1250) {
+        myMap.setCenter([55.76083952313602,37.61705300805652]);
+        myMap.controls.remove('geolocationControl');
+        myMap.controls.remove(zoomControl);
+      } else {
+        myMap.controls.add(zoomControl);
+        myMap.controls.add('geolocationControl');
+      }
+      if(window.innerWidth < 861) {
+        myMap.setCenter([55.760161979584744,37.61018655297841]);
+      }
+      //
+    }
+
+    checkWidth();
+
+    let timer;
+    window.addEventListener('resize', () => {
+      clearTimeout(timer);
+      timer = setTimeout(checkWidth, 500);
+    });
+  }
+
+  // customer input mask
+  let selector = document.querySelector("input[type='tel']");
+  let im = new Inputmask("+7 (999) - 999-99-99");
+  im.mask(selector);
+
+  // customer input validate
+  new JustValidate('.form', {
+    rules: {
+      name: {
+        required: true,
+        minLength: 2,
+        maxLength: 15,
+        strength: {
+          custom: '^[А-ЯЁа-яё]*$'
+        }
+      },
+      tel: {
+        required: true,
+        function: (name, value) => {
+          const phone = selector.inputmask.unmaskedvalue();
+          return Number(phone) && phone.length === 10;
+        }
+      },
+      mail: {
+        required: true,
+        email: true
+      },
+    },
+    messages: {
+      name: 'Недопустимый формат',
+      tel: 'Недопустимый формат',
+    },
+  });
+
 });
 
 
