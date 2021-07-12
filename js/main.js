@@ -141,48 +141,64 @@ function createArt(artists, idArt) {
 
   return;
 }
+function createPopup(idArt) {
+  const popupImg = document.querySelector('.popup__img');
+  const popupH4 = document.querySelector('.popup__title');
+  const popupSub = document.querySelector('.popup__subtitle');
+  const popupYear = document.querySelector('.popup__year');
+  const popupDesc = document.querySelector('.popup__desc');
+
+  const altArtArr = popupArt.find(artist => artist.id === idArt).alt;
+  const titleArtArr = popupArt.find(artist => artist.id === idArt).title;
+  const subtitleArtArr = popupArt.find(artist => artist.id === idArt).subtitle;
+  const yearArtArr = popupArt.find(artist => artist.id === idArt).year;
+  const descArtArr = popupArt.find(artist => artist.id === idArt).desc;
+
+  const imgArt = document.createElement('img');
+  imgArt.classList.add('popup__img');
+  imgArt.classList.add(idArt);
+  imgArt.alt = altArtArr;
+
+  const h4Art = document.createElement('h3');
+  h4Art.classList.add('h-reset');
+  h4Art.classList.add('popup__title');
+  h4Art.textContent = titleArtArr;
+
+  const subtitleArt = document.createElement('p');
+  subtitleArt.classList.add('h-reset');
+  subtitleArt.classList.add('popup__subtitle');
+  subtitleArt.textContent = subtitleArtArr;
+
+  const yearArt = document.createElement('p');
+  yearArt.classList.add('h-reset');
+  yearArt.classList.add('popup__year');
+  yearArt.textContent = yearArtArr;
+
+  const descArt = document.createElement('p');
+  descArt.classList.add('h-reset');
+  descArt.classList.add('popup__desc');
+  descArt.innerHTML = descArtArr;
+
+  popupImg.replaceWith(imgArt);
+  popupH4.replaceWith(h4Art);
+  popupSub.replaceWith(subtitleArt);
+  popupYear.replaceWith(yearArt);
+  popupDesc.replaceWith(descArt);
+
+  return;
+}
 
 $(document).ready(function() {
-  //header fixed
-  function headerFixed() {
-    $(window).scroll(function(){
-      if(window.innerWidth > 1250) {
-        if ($(this).scrollTop() > 171) {
-          $('.header').addClass('fixed');
-          $('.section__hero').css("margin-top", "171px");
-        } else {
-          $('.header').removeClass('fixed');
-          $('.section__hero').css("margin-top", "0");
-        }
-        return;
-      }
-      if(window.innerWidth > 441 && window.innerWidth <= 1250) {
-        if ($(this).scrollTop() > 100) {
-          $('.header').addClass('fixed');
-          $('.section__hero').css("margin-top", "100px");
-        } else {
-          $('.header').removeClass('fixed');
-          $('.section__hero').css("margin-top", "0");
-        }
-        return;
-      }
-      if(window.innerWidth <= 441) {
-        if ($(this).scrollTop() > 45) {
-          $('.header').addClass('fixed');
-          $('.section__hero').css("margin-top", "45px");
-        } else {
-          $('.header').removeClass('fixed');
-          $('.section__hero').css("margin-top", "0");
-        }
-        return;
-      }
-    });
-  }
-
-  headerFixed();
-
-  window.addEventListener('resize', () => {
-    headerFixed();
+  // slider hero
+  const swiperHero = new Swiper('.hero__slider', {
+    loop: true,
+    autoplay: {
+      delay: 9000,
+    },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
   });
 
   // scroll to link
@@ -258,15 +274,31 @@ $(document).ready(function() {
   });
 
   //search
-    $('.search__icon').click(function() {
-      if (!$('.header__search').hasClass('header__search--open')) {
-        $('.header__search').addClass('header__search--open');
-      } else {
-        $('.header__search').removeClass('header__search--open');
-      }
+    $('.header__search--btn').click(function(event) {
+      event.preventDefault();
+      $('.header__form').addClass('active');
+      $('.header__search--btn').hide();
+      $('.header__search--search').addClass('header__search--open');
+
+      $('.header__search--search .search__icon').click(function(event){
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        console.log(event.target);
+        alert('Поиск!');
+        $('.header__form').removeClass('active');
+        $('.header__search--search').removeClass('header__search--open');
+        $('.header__search--btn').show();
+        $('.header__search-open').val('');
+      });
     });
-    $('.search__close').click(function() {
-      $('.header__search').removeClass('header__search--open');
+
+    $('.search__close').click(function(event) {
+      event.stopImmediatePropagation();
+      event.preventDefault();
+      $('.header__form').removeClass('active');
+      $('.header__search--search').removeClass('header__search--open');
+      $('.header__search--btn').show();
+      $('.header__search-open').val('');
     });
 
   //dropdown
@@ -299,182 +331,167 @@ $(document).ready(function() {
   $('.contry__btn').each(function() {
 
     $(this).click( function(event) {
-      $('.section__wrapper.section__wrapper--catalog').removeClass('active');
+      $('.section__wrapper.section__wrapper--catalog').animate({
+        opacity: 0,
+      }, function(){
+        $('.contry__btn').each(function () {
+          $(this).removeClass('active');
+        });
+        $(this).addClass('active');
+        $path = event.currentTarget.dataset.path;
 
-      $('.contry__btn').each(function () {
-        $(this).removeClass('active');
+        if ($path === 'deu') {
+
+          $('.years__1400').replaceWith(createList(artistSetDeu1400, yearAdd[0], $path));
+          $('.years__1500').replaceWith(createList(artistSetDeu1500, yearAdd[1], $path));
+          $('.years__1600').replaceWith(createList(artistSetDeu1600, yearAdd[2], $path));
+          $('.years__1700').replaceWith(createList(artistSetDeu1700, yearAdd[3], $path));
+          $('.years__1800').replaceWith(createList(artistSetDeu1800, yearAdd[4], $path));
+          $('.years__1900').replaceWith(createList(artistSetDeu1900, yearAdd[5], $path));
+          $('.years__2000').replaceWith(createList(artistSetDeu2000, yearAdd[6], $path));
+
+          /* Select artist */
+          createArt(artistsDeu, 'years__1400_deu_0');
+          $('#years__1400_deu_0').addClass('active');
+
+          $('.years__btn').each(function() {
+            $(this).click( function() {
+              $('.years__btn').each(function () {
+                $(this).removeClass('active');
+              });
+              $(this).addClass('active');
+
+              let idArt = $(this).attr('id');
+
+              $('.section__wrap.artist').slideUp(300, 'linear', function(){
+                createArt(artistsDeu, idArt);
+              });
+              $('.section__wrap.artist').slideDown('slow');
+
+            });
+          });
+
+        } else if ($path === 'it') {
+          $('.years__1400').replaceWith(createList(artistSetIt1400, yearAdd[0], $path));
+          $('.years__1500').replaceWith(createList(artistSetIt1500, yearAdd[1], $path));
+          $('.years__1600').replaceWith(createList(artistSetIt1600, yearAdd[2], $path));
+          $('.years__1700').replaceWith(createList(artistSetIt1700, yearAdd[3], $path));
+          $('.years__1800').replaceWith(createList(artistSetIt1800, yearAdd[4], $path));
+          $('.years__1900').replaceWith(createList(artistSetIt1900, yearAdd[5], $path));
+          $('.years__2000').replaceWith(createList(artistSetIt2000, yearAdd[6], $path));
+
+          /* Select artist */
+          createArt(artistsIt, 'years__1400_it_0');
+          $('#years__1400_it_0').addClass('active');
+
+          $('.years__btn').each(function() {
+            $(this).click( function() {
+              $('.section__wrap.artist').slideUp('slow');
+              $('.years__btn').each(function () {
+                $(this).removeClass('active');
+              });
+              $(this).addClass('active');
+              let idArt = $(this).attr('id');
+
+              $('.section__wrap.artist').slideUp(300, 'linear', function(){
+                createArt(artistsIt, idArt);
+              });
+              $('.section__wrap.artist').slideDown('slow');
+            });
+          });
+
+        } else if ($path === 'ru') {
+          $('.years__1400').replaceWith(createList(artistSetRu1400, yearAdd[0], $path));
+          $('.years__1500').replaceWith(createList(artistSetRu1500, yearAdd[1], $path));
+          $('.years__1600').replaceWith(createList(artistSetRu1600, yearAdd[2], $path));
+          $('.years__1700').replaceWith(createList(artistSetRu1700, yearAdd[3], $path));
+          $('.years__1800').replaceWith(createList(artistSetRu1800, yearAdd[4], $path));
+          $('.years__1900').replaceWith(createList(artistSetRu1900, yearAdd[5], $path));
+          $('.years__2000').replaceWith(createList(artistSetRu2000, yearAdd[6], $path));
+
+          /* Select artist */
+          createArt(artistsRu, 'years__1400_ru_0');
+          $('#years__1400_ru_0').addClass('active');
+
+          $('.years__btn').each(function() {
+            $(this).click( function() {
+              $('.section__wrap.artist').slideUp('slow');
+              $('.years__btn').each(function () {
+                $(this).removeClass('active');
+              });
+              $(this).addClass('active');
+              let idArt = $(this).attr('id');
+
+              $('.section__wrap.artist').slideUp(300, 'linear', function(){
+                createArt(artistsRu, idArt);
+              });
+              $('.section__wrap.artist').slideDown('slow');
+            });
+          });
+
+        } else if ($path === 'bel') {
+          $('.years__1400').replaceWith(createList(artistSetBel1400, yearAdd[0], $path));
+          $('.years__1500').replaceWith(createList(artistSetBel1500, yearAdd[1], $path));
+          $('.years__1600').replaceWith(createList(artistSetBel1600, yearAdd[2], $path));
+          $('.years__1700').replaceWith(createList(artistSetBel1700, yearAdd[3], $path));
+          $('.years__1800').replaceWith(createList(artistSetBel1800, yearAdd[4], $path));
+          $('.years__1900').replaceWith(createList(artistSetBel1900, yearAdd[5], $path));
+          $('.years__2000').replaceWith(createList(artistSetBel2000, yearAdd[6], $path));
+
+          /* Select artist */
+          createArt(artistsBel, 'years__1400_bel_0');
+          $('#years__1400_bel_0').addClass('active');
+
+          $('.years__btn').each(function() {
+            $(this).click( function() {
+              $('.section__wrap.artist').slideUp('slow');
+              $('.years__btn').each(function () {
+                $(this).removeClass('active');
+              });
+              $(this).addClass('active');
+              let idArt = $(this).attr('id');
+
+              $('.section__wrap.artist').slideUp(300, 'linear', function(){
+                createArt(artistsBel, idArt);
+              });
+              $('.section__wrap.artist').slideDown('slow');
+            });
+          });
+
+        } else {
+          $('.years__1400').replaceWith(createList(artistSetFr1400, yearAdd[0]));
+          $('.years__1500').replaceWith(createList(artistSetFr1500, yearAdd[1]));
+          $('.years__1600').replaceWith(createList(artistSetFr1600, yearAdd[2]));
+          $('.years__1700').replaceWith(createList(artistSetFr1700, yearAdd[3]));
+          $('.years__1800').replaceWith(createList(artistSetFr1800, yearAdd[4]));
+          $('.years__1900').replaceWith(createList(artistSetFr1900, yearAdd[5]));
+          $('.years__2000').replaceWith(createList(artistSetFr2000, yearAdd[6]));
+
+          /* Select artist */
+          createArt(artistsFr, 'years__1400_fr_0');
+          $('#years__1400_fr_0').addClass('active');
+
+          $('.years__btn').each(function() {
+            $(this).click( function() {
+              $('.section__wrap.artist').slideUp('slow');
+              $('.years__btn').each(function () {
+                $(this).removeClass('active');
+              });
+              $(this).addClass('active');
+              let idArt = $(this).attr('id');
+
+              $('.section__wrap.artist').slideUp(300, 'linear', function(){
+                createArt(artistsFr, idArt);
+              });
+              $('.section__wrap.artist').slideDown('slow');
+
+            });
+          });
+        }
       });
-      $(this).addClass('active');
-      $path = event.currentTarget.dataset.path;
-
-      if ($path === 'deu') {
-
-        $('.years__1400').replaceWith(createList(artistSetDeu1400, yearAdd[0], $path));
-        $('.years__1500').replaceWith(createList(artistSetDeu1500, yearAdd[1], $path));
-        $('.years__1600').replaceWith(createList(artistSetDeu1600, yearAdd[2], $path));
-        $('.years__1700').replaceWith(createList(artistSetDeu1700, yearAdd[3], $path));
-        $('.years__1800').replaceWith(createList(artistSetDeu1800, yearAdd[4], $path));
-        $('.years__1900').replaceWith(createList(artistSetDeu1900, yearAdd[5], $path));
-        $('.years__2000').replaceWith(createList(artistSetDeu2000, yearAdd[6], $path));
-
-        /* Select artist */
-        createArt(artistsDeu, 'years__1400_deu_0');
-        $('#years__1400_deu_0').addClass('active');
-
-        $('.years__btn').each(function() {
-          $(this).click( function() {
-            $('.section__wrap.artist').slideUp('slow');
-            $('.years__btn').each(function () {
-              $(this).removeClass('active');
-            });
-            $(this).addClass('active');
-            let idArt = $(this).attr('id');
-
-            setTimeout(function slideShow() {
-              createArt(artistsDeu, idArt);
-              $('.section__wrap.artist').slideDown('slow');
-            }, 300);
-          });
-        });
-
-        setTimeout(function slideShow() {
-          $('.section__wrapper.section__wrapper--catalog').addClass('active');
-        }, 300);
-
-      } else if ($path === 'it') {
-        $('.years__1400').replaceWith(createList(artistSetIt1400, yearAdd[0], $path));
-        $('.years__1500').replaceWith(createList(artistSetIt1500, yearAdd[1], $path));
-        $('.years__1600').replaceWith(createList(artistSetIt1600, yearAdd[2], $path));
-        $('.years__1700').replaceWith(createList(artistSetIt1700, yearAdd[3], $path));
-        $('.years__1800').replaceWith(createList(artistSetIt1800, yearAdd[4], $path));
-        $('.years__1900').replaceWith(createList(artistSetIt1900, yearAdd[5], $path));
-        $('.years__2000').replaceWith(createList(artistSetIt2000, yearAdd[6], $path));
-
-        /* Select artist */
-        createArt(artistsIt, 'years__1400_it_0');
-        $('#years__1400_it_0').addClass('active');
-
-        $('.years__btn').each(function() {
-          $(this).click( function() {
-            $('.section__wrap.artist').slideUp('slow');
-            $('.years__btn').each(function () {
-              $(this).removeClass('active');
-            });
-            $(this).addClass('active');
-            let idArt = $(this).attr('id');
-
-            setTimeout(function slideShow() {
-              createArt(artistsIt, idArt);
-              $('.section__wrap.artist').slideDown('slow');
-            }, 300);
-          });
-        });
-
-        setTimeout(function slideShow() {
-          $('.section__wrapper.section__wrapper--catalog').addClass('active');
-        }, 300);
-
-      } else if ($path === 'ru') {
-        $('.years__1400').replaceWith(createList(artistSetRu1400, yearAdd[0], $path));
-        $('.years__1500').replaceWith(createList(artistSetRu1500, yearAdd[1], $path));
-        $('.years__1600').replaceWith(createList(artistSetRu1600, yearAdd[2], $path));
-        $('.years__1700').replaceWith(createList(artistSetRu1700, yearAdd[3], $path));
-        $('.years__1800').replaceWith(createList(artistSetRu1800, yearAdd[4], $path));
-        $('.years__1900').replaceWith(createList(artistSetRu1900, yearAdd[5], $path));
-        $('.years__2000').replaceWith(createList(artistSetRu2000, yearAdd[6], $path));
-
-        /* Select artist */
-        createArt(artistsRu, 'years__1400_ru_0');
-        $('#years__1400_ru_0').addClass('active');
-
-        $('.years__btn').each(function() {
-          $(this).click( function() {
-            $('.section__wrap.artist').slideUp('slow');
-            $('.years__btn').each(function () {
-              $(this).removeClass('active');
-            });
-            $(this).addClass('active');
-            let idArt = $(this).attr('id');
-
-            setTimeout(function slideShow() {
-              createArt(artistsRu, idArt);
-              $('.section__wrap.artist').slideDown('slow');
-            }, 300);
-          });
-        });
-
-        setTimeout(function slideShow() {
-          $('.section__wrapper.section__wrapper--catalog').addClass('active');
-        }, 300);
-
-      } else if ($path === 'bel') {
-        $('.years__1400').replaceWith(createList(artistSetBel1400, yearAdd[0], $path));
-        $('.years__1500').replaceWith(createList(artistSetBel1500, yearAdd[1], $path));
-        $('.years__1600').replaceWith(createList(artistSetBel1600, yearAdd[2], $path));
-        $('.years__1700').replaceWith(createList(artistSetBel1700, yearAdd[3], $path));
-        $('.years__1800').replaceWith(createList(artistSetBel1800, yearAdd[4], $path));
-        $('.years__1900').replaceWith(createList(artistSetBel1900, yearAdd[5], $path));
-        $('.years__2000').replaceWith(createList(artistSetBel2000, yearAdd[6], $path));
-
-        /* Select artist */
-        createArt(artistsBel, 'years__1400_bel_0');
-        $('#years__1400_bel_0').addClass('active');
-
-        $('.years__btn').each(function() {
-          $(this).click( function() {
-            $('.section__wrap.artist').slideUp('slow');
-            $('.years__btn').each(function () {
-              $(this).removeClass('active');
-            });
-            $(this).addClass('active');
-            let idArt = $(this).attr('id');
-
-            setTimeout(function slideShow() {
-              createArt(artistsBel, idArt);
-              $('.section__wrap.artist').slideDown('slow');
-            }, 300);
-          });
-        });
-
-        setTimeout(function slideShow() {
-          $('.section__wrapper.section__wrapper--catalog').addClass('active');
-        }, 300);
-
-      } else {
-        $('.years__1400').replaceWith(createList(artistSetFr1400, yearAdd[0]));
-        $('.years__1500').replaceWith(createList(artistSetFr1500, yearAdd[1]));
-        $('.years__1600').replaceWith(createList(artistSetFr1600, yearAdd[2]));
-        $('.years__1700').replaceWith(createList(artistSetFr1700, yearAdd[3]));
-        $('.years__1800').replaceWith(createList(artistSetFr1800, yearAdd[4]));
-        $('.years__1900').replaceWith(createList(artistSetFr1900, yearAdd[5]));
-        $('.years__2000').replaceWith(createList(artistSetFr2000, yearAdd[6]));
-
-        /* Select artist */
-        createArt(artistsFr, 'years__1400_fr_0');
-        $('#years__1400_fr_0').addClass('active');
-
-        $('.years__btn').each(function() {
-          $(this).click( function() {
-            $('.section__wrap.artist').slideUp('slow');
-            $('.years__btn').each(function () {
-              $(this).removeClass('active');
-            });
-            $(this).addClass('active');
-            let idArt = $(this).attr('id');
-
-            setTimeout(function slideShow() {
-              createArt(artistsFr, idArt);
-              $('.section__wrap.artist').slideDown('slow');
-            }, 300);
-          });
-        });
-
-        setTimeout(function slideShow() {
-          $('.section__wrapper.section__wrapper--catalog').addClass('active');
-        }, 300);
-
-      }
-
+      $('.section__wrapper.section__wrapper--catalog').animate({
+        opacity: 1,
+      });
     });
   });
 
@@ -532,17 +549,16 @@ $(document).ready(function() {
 
     $('.years__btn').each(function() {
       $(this).click( function() {
-        $('.section__wrap.artist').slideUp('slow');
         $('.years__btn').each(function () {
           $(this).removeClass('active');
         });
         $(this).addClass('active');
         let idArt = $(this).attr('id');
-        setTimeout(function slideShow() {
-          createArt(artistsFr, idArt);
-          $('.section__wrap.artist').slideDown('slow');
-        }, 300);
 
+        $('.section__wrap.artist').slideUp(300, 'linear', function(){
+          createArt(artistsFr, idArt);
+        });
+        $('.section__wrap.artist').slideDown('slow');
       });
     });
 
@@ -887,6 +903,45 @@ $(document).ready(function() {
     }
   });
 
+  // popup
+  $('.swiper-slide--gallery').click(function() {
+    let idArt = $(this).attr('id');
+    createPopup(idArt);
+    $('.body').addClass('popup-active');
+    $('.popup').addClass('is-active');
+    $('.popup').show("slow");
+
+    $('.popup__btn').click(function() {
+      $('.popup').hide("slow");
+      $('.body').removeClass('popup-active');
+      $('.popup').removeClass('is-active');
+    });
+
+    $(document).click(function (event) {
+      if ($('.popup').is(event.target)) {
+        $('.popup').hide("slow");
+        $('.popup').removeClass('is-active');
+        $('.body').removeClass('popup-active');
+      }
+    });
+  });
+
+  /* scroll to artist */
+  function scrollToArt(offset) {
+    if(window.innerWidth < 982) {
+      $('body, html').animate({
+        scrollTop: offset,
+      }, 300);
+    }
+  }
+
+  $('.years__item').click(function(){
+    $('.years__art').click(function() {
+        let artBlock = document.querySelector('.section__wrap.artist');
+        let offset = artBlock.offsetTop - $('.header').outerHeight() - 50;
+        scrollToArt(offset);
+    });
+  });
 });
 
 

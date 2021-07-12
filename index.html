@@ -8,10 +8,25 @@
   <!--- CSS -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/simplebar.min.css">
-  <link rel="stylesheet" href="css/choices.min.css">
-  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/tooltip.css">
-  <link rel="stylesheet" href="css/style.css?ver=070721_1">
+  <link rel="stylesheet" href="css/style.min.css?ver=210712">
+
+    <!--- JS -->
+    <script defer src="js/jquery-3.5.1.min.js"></script>
+    <script defer src="js/jquery-ui.min.js"></script>
+    <script defer src="js/simplebar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script defer src="js/artistSet.js"></script>
+    <script defer src="js/artist.min.js"></script>
+    <script defer src="js/tooltip.js"></script>
+    <script defer src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
+    <script defer src="js/inputmask.min.js"></script>
+    <script defer src="js/just-validate.min.js"></script>
+    <script defer src="js/popup.js"></script>
+    <script defer src="js/main.min.js?ver=210712"></script>
 </head>
 <body class="body">
   <div class="svg-sprite-box">
@@ -76,11 +91,16 @@
           <svg class="log-in__icon" width="13" height="13"><use xlink:href="#log__icon"></use></svg>
           Войти
         </button>
-        <button class="button-reset header__search search" aria-label="Поиск">
-          <svg class="search__icon" width="23" height="22"><use xlink:href="#search__icon"></use></svg>
-          <span class="search__close"></span>
-        </button>
-        <input class="header__search-open">
+        <form class="header__form">
+          <button class="button-reset header__search search header__search--btn" aria-label="Поиск">
+            <svg class="search__icon" width="23" height="22"><use xlink:href="#search__icon"></use></svg>
+          </button>
+          <button class="button-reset header__search search header__search--search" aria-label="Поиск">
+            <svg class="search__icon" width="23" height="22"><use xlink:href="#search__icon"></use></svg>
+            <span class="search__close"></span>
+          </button>
+          <input class="header__search-open">
+        </form>
       </div>
     </div>
     <div class="header__wrap">
@@ -183,8 +203,12 @@
     <h1 class="h-reset title-hidden">Blanchard — художественная галерея</h1>
     <section class="section__hero hero">
       <div class="container">
-        <div class="hero__slider">
-            <div class="hero__bg hero__bg--1"></div>
+        <div class="swiper-container hero__slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide hero__bg hero__bg--1"></div>
+            <div class="swiper-slide hero__bg hero__bg--2"></div>
+            <div class="swiper-slide hero__bg hero__bg--3"></div>
+          </div>
         </div>
         <h2 class="h-reset hero__title">Прикоснитесь к&nbsp;прекрасному</h2>
         <p class="h-reset hero__desc">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
@@ -225,148 +249,148 @@
           </div>
           <div class="swiper-container swiper-container--gallery">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-1">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/1.jpg" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/1.png" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/1.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/1.jpg" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-2">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/2.jpg" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/2.png" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/2.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/2.jpg" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-3">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/3.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/3.png" alt="Картина Абстракция: люди" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/3.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/3.jpg" alt="Картина Абстракция: люди" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-4">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/4.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/4.png" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/4.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/4.jpg" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-5">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/5.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/5.png" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/5.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/5.jpg" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-6">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/6.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/6.png" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/6.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/6.jpg" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-7">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/7.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/7.png" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/7.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/7.jpg" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-8">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/8.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/8.png" alt="Картина Абстракция: 2 человека" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/8.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/8.jpg" alt="Картина Абстракция: 2 человека" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-9">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/9.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/9.png" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/9.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/9.jpg" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-10">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/10.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/10.png" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/10.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/10.jpg" alt="Картина Абстракция: человек" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-11">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/11.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/11.png" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/11.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/11.jpg" alt="Картина Абстракция: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-12">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/12.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/12.png" alt="Картина Абстракция: люди" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/12.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/12.jpg" alt="Картина Абстракция: люди" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-13">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/13.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/13.png" alt="Картина Графика: мужчина с ружьем" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/13.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/13.jpg" alt="Картина Графика: мужчина с ружьем" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-14">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/14.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/14.png" alt="Картина Графика: 2 девушки" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/14.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/14.jpg" alt="Картина Графика: 2 девушки" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-15">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/15.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/15.png" alt="Картина Графика: мальчик" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/15.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/15.jpg" alt="Картина Графика: мальчик" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-16">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/16.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/16.png" alt="Картина Графика: люди" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/16.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/16.jpg" alt="Картина Графика: люди" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-17">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/17.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/17.png" alt="Картина Графика: девушка красится" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/17.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/17.jpg" alt="Картина Графика: девушка красится" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-18">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/18.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/18.png" alt="Картина Графика: гусар с лошадью" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/18.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/18.jpg" alt="Картина Графика: гусар с лошадью" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-19">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/19.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/19.png" alt="Скульптура: бело-синее яйцо" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/19.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/19.jpg" alt="Скульптура: бело-синее яйцо" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-20">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/20.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/20.png" alt="Скульптура: яйцо с отверстиями" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/20.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/20.jpg" alt="Скульптура: яйцо с отверстиями" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-21">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/21.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/21.png" alt="Скульптура: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/21.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/21.jpg" alt="Скульптура: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-22">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/22.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/22.png" alt="Скульптура: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/22.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/22.jpg" alt="Скульптура: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-23">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/23.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/23.png" alt="Скульптура: геометрические фигуры" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/23.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/23.jpg" alt="Скульптура: геометрические фигуры" class="slide-img" loading="lazy">
                 </picture>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide swiper-slide--gallery" id="popup-24">
                 <picture class="slide-img">
-                  <source srcset="img/gallery/slider/new/24.png" media="(min-width: 442px)">
-                  <img src="img/gallery/slider/new/320/24.png" alt="Скульптура: человек" class="slide-img" loading="lazy">
+                  <source srcset="img/gallery/slider/24.jpg" media="(min-width: 442px)">
+                  <img src="img/gallery/slider/320/24.jpg" alt="Скульптура: человек" class="slide-img" loading="lazy">
                 </picture>
               </div>
             </div>
@@ -599,7 +623,7 @@
         </div>
         <div class="section__wrapper section__wrapper--edition">
           <div class="swiper-buttons swiper-buttons--edition">
-            <div class="swiper-button-prev">
+            <div class="swiper-button-prev swiper-button-prev--edition">
               <svg class="swiper-icon" width="30" height="30"><use xlink:href="#gallery-arrow"></use></svg>
             </div>
             <div class="swiper-pagination swiper-pagination--edition"></div>
@@ -644,7 +668,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <img src="img/edition/4.png" alt="Желтая облажка с лицом человека" loading="lazy">
+                  <img src="img/edition/4.jpg" alt="Желтая облажка с лицом человека" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Николай Ильин</h3>
@@ -655,7 +679,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <img src="img/edition/5.png" alt="Розовая обложка" loading="lazy">
+                  <img src="img/edition/5.jpg" alt="Розовая обложка" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Модульные сетки в граф...</h3>
@@ -666,7 +690,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <img src="img/edition/6.png" alt="Белая обложка с маленькими картинками" loading="lazy">
+                  <img src="img/edition/6.jpg" alt="Белая обложка с маленькими картинками" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Эволюция графических ст...</h3>
@@ -677,7 +701,7 @@
               </div>
               <div class="swiper-slide swiper-slide--edition slide">
                 <picture>
-                  <img src="img/edition/7.png" alt="Зеленая обложка с девушкой" loading="lazy">
+                  <img src="img/edition/7.jpg" alt="Зеленая обложка с девушкой" loading="lazy">
                 </picture>
                 <div class="slide__descr">
                   <h3 class="h-reset slide__title">Искусство и визуальное в...</h3>
@@ -696,18 +720,21 @@
         <h2 class="h-reset section__title section__title--projects">Проекты</h2>
         <p class="h-reset section__descr section__descr--projects tool">
           Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное <span class="no-wrap">информационно-пропагандистское</span>
-          <span class="tool__block liteTooltip" tabindex="0" data-tooltip-focus="Пример современных тенденций - современная методология разработки">
+          <button class="button-reset tool__block liteTooltip"
+            data-tooltip-mouseover="Пример современных тенденций - современная методология разработки" aria-label="Тултип">
             <span class="tool__icon">i</span>
-          </span>
+          </button>
           обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
-          <span class="tool__block liteTooltip" tabindex="0" data-tooltip-focus="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции">
+          <button class="button-reset tool__block liteTooltip"
+            data-tooltip-mouseover="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции" aria-label="Тултип">
             <span class="tool__icon">i</span>
-          </span>
+          </button>
           исключительно в разрезе маркетинговых и финансовых
-          <span class="tool__block liteTooltip" tabindex="0" data-tooltip-focus="В стремлении повысить качество">
+          <button class="button-reset tool__block liteTooltip"
+            data-tooltip-mouseover="В стремлении повысить качество" aria-label="Тултип">
             <span class="tool__icon">i</span>
-          </span>
-          предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее: <a href="#" class="section__link">blanchard-art.ru/projects/about</a>
+          </button>
+          предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее: <a href="#" class="section__link" aria-label="О проектах">blanchard-art.ru/projects/about</a>
         </p>
         <h3 class="h-reset section__partners">Партнёры проектов:</h3>
         <div class="swiper-container swiper-container--projects">
@@ -848,18 +875,19 @@
     </div>
   </footer>
 
-  <!--- JS -->
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
-  <script src="js/simplebar.min.js"></script>
-  <script src="js/choices.min.js"></script>
-  <script src="js/swiper-bundle.min.js"></script>
-  <script src="js/artistSet.js"></script>
-  <script src="js/artist.js"></script>
-  <script src="js/tooltip.js"></script>
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
-  <script src="js/inputmask.min.js"></script>
-  <script src="js/just-validate.min.js"></script>
-  <script src="js/main.js?ver=070721_1"></script>
+  <div class="popup">
+    <div class="popup__wrap">
+      <img src="#" alt="Картина Женщина с граблями" class="popup__img popup-1">
+      <div class="popup__content">
+        <h3 class="h-reset popup__title">Казимир Малевич</h3>
+        <p class="h-reset popup__subtitle">“Женщина с граблями”</p>
+        <p class="h-reset popup__year">1931-1932</p>
+        <p class="h-reset popup__desc">Картина из второй серии крестьянского цикла работ Казимира Малевича. Художник принялся за её создание в 1930-1931 годах, после того, как первый цикл был утерян после Берлинской и Варшавской выставок в 1927 году.</p>
+        <button class="button-reset popup__btn" aria-label="Закрыть модальное окно">
+          <span class="popup__close"></span>
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
