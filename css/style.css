@@ -2193,7 +2193,7 @@
   position: fixed;
   z-index: -10000;
   transition: all .3s ease-in-out;
-  overflow-y: scroll;
+  overflow-y: auto;
   inset: 0;
 }
 .popup.is-active {
@@ -2214,7 +2214,7 @@
     transform: translateY(-500%);
   transition: transform .3s ease-in-out;
   max-width: 900px;
-  margin: 25vh auto;
+  margin: 20vh auto;
 }
 .popup__wrap.is-active {
   -webkit-transform: translateY(0);
