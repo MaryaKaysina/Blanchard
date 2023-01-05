@@ -283,7 +283,6 @@ $(document).ready(function() {
       $('.header__search--search .search__icon').click(function(event){
         event.stopImmediatePropagation();
         event.preventDefault();
-        console.log(event.target);
         alert('Поиск!');
         $('.header__form').removeClass('active');
         $('.header__search--search').removeClass('header__search--open');
@@ -907,21 +906,27 @@ $(document).ready(function() {
   $('.swiper-slide--gallery').click(function() {
     let idArt = $(this).attr('id');
     createPopup(idArt);
+    document.body.style.paddingRight = window.innerWidth - document.documentElement.clientWidth + 'px';
+    document.querySelector('.header').style.paddingRight = window.innerWidth - document.documentElement.clientWidth + 'px';
     $('.body').addClass('popup-active');
     $('.popup').addClass('is-active');
-    $('.popup').show("slow");
+    $('.popup__wrap').addClass('is-active');
 
     $('.popup__btn').click(function() {
-      $('.popup').hide("slow");
+      document.body.style.paddingRight = 0;
+      document.querySelector('.header').style.paddingRight = 0;
       $('.body').removeClass('popup-active');
       $('.popup').removeClass('is-active');
+      $('.popup__wrap').removeClass('is-active');
     });
 
     $(document).click(function (event) {
       if ($('.popup').is(event.target)) {
-        $('.popup').hide("slow");
+        document.body.style.paddingRight = 0;
+        document.querySelector('.header').style.paddingRight = 0;
         $('.popup').removeClass('is-active');
         $('.body').removeClass('popup-active');
+        $('.popup__wrap').removeClass('is-active');
       }
     });
   });

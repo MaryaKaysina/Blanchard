@@ -74,6 +74,9 @@
   width: 100%;
   min-width: 320px;
 }
+.body.noscroll {
+  overflow: hidden;
+}
 .a-reset {
   text-decoration: none;
   color: inherit;
@@ -797,9 +800,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
+  /* -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: space-between; */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1820,6 +1823,7 @@
   transition: filter .3s ease-in-out, -webkit-filter .3s ease-in-out;
 }
 .swiper-slide__link {
+  width: 99%;
   border: 1px solid #CACACA;
   -webkit-transition: border .3s ease-in-out;
   -o-transition: border .3s ease-in-out;
@@ -2186,33 +2190,36 @@
   overflow: hidden;
 }
 .popup {
-  display: none;
+  position: fixed;
+  z-index: -10000;
+  transition: all .3s ease-in-out;
+  overflow-y: scroll;
+  inset: 0;
 }
 .popup.is-active {
-  position: fixed;
-  top: 0px;
   z-index: 10000;
-  width:100%;
-  height: 100%;
   background-color: rgba(0,0,0,0.5);
-  overflow: hidden;
 }
 .popup__wrap {
-  position: absolute;
-  left: 50%;
-  top: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #FFFFFF;
-  -webkit-box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.8);
-          box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.8);
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0px 0px 80px rgb(0 0 0 / 80%);
+    box-shadow: 0px 0px 80px rgb(0 0 0 / 80%);
+  -ms-transform: translateY(-500%);
+    transform: translateY(-500%);
+  transition: transform .3s ease-in-out;
+  max-width: 900px;
+  margin: 25vh auto;
+}
+.popup__wrap.is-active {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 .popup__content {
   padding: 30px 48px;
